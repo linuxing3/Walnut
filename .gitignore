@@ -16,6 +16,9 @@ x64/
 # Exclude
 !vendor/bin
 vendor/
+vsxmake2022/
+
+Walnut--Modules/
 
 # imgui
 imgui.ini
