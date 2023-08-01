@@ -129,7 +129,7 @@ void Renderer::Render() {
   std::for_each(begin(futures), end(futures), [](auto &future) { future.wait(); });
 
   Walnut::Timer timer;
-  lastRenderTimeMS = timer.ElapsedMillis();
+  lastRenderTime = timer.ElapsedMillis();
   m_state = RenderState::Finished;
 }
 
