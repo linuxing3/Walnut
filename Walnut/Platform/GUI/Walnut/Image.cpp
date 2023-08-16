@@ -4,6 +4,7 @@
 #include "backends/imgui_impl_vulkan.h"
 
 #include "ApplicationGUI.h"
+#include "vulkan/vulkan_core.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -141,8 +142,10 @@ namespace Walnut {
 		{
 			VkSamplerCreateInfo info = {};
 			info.sType = VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO;
-			info.magFilter = VK_FILTER_LINEAR;
-			info.minFilter = VK_FILTER_LINEAR;
+			// info.magFilter = VK_FILTER_LINEAR;
+			// info.minFilter = VK_FILTER_LINEAR;
+			info.magFilter = VK_FILTER_NEAREST;
+			info.minFilter = VK_FILTER_NEAREST;
 			info.mipmapMode = VK_SAMPLER_MIPMAP_MODE_LINEAR;
 			info.addressModeU = VK_SAMPLER_ADDRESS_MODE_REPEAT;
 			info.addressModeV = VK_SAMPLER_ADDRESS_MODE_REPEAT;

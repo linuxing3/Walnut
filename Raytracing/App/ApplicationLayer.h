@@ -7,6 +7,7 @@
 #include <Walnut/Layer.h>
 
 #include "Renderer/Renderer.h"
+#include "Walnut/Image.h"
 
 namespace RTIAW {
 class ApplicationLayer : public Walnut::Layer {
@@ -15,6 +16,7 @@ public:
   ~ApplicationLayer() override = default;
 
   void OnUIRender() override;
+  void OnUIRenderT();
 
   void Run();
 

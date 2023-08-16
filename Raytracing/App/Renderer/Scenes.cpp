@@ -94,6 +94,19 @@ void Renderer::LoadScene() {
     auto plane_material = Materials::Lambertian(color(0.6, 0.6, 0.6));
     m_scene.Add(Shapes::Plane(point3(0.0, -1.2, 0.0), glm::vec3(0.0, 1.0, 0.0)), plane_material);
   } break;
+  case Scenes::OneSphereScene: {
+    Camera::CameraOrientation orientation{point3(0, 0, 13), point3(0, 0, 0), vec3(0, 1, 0)};
+
+    const auto lookDir = orientation.lookfrom - orientation.lookat;
+    const auto dist_to_focus = std::sqrt(glm::dot(lookDir, lookDir));
+    constexpr auto aperture = 0.1f;
+
+    m_camera = std::make_unique<Camera>(orientation, 20.0f, AspectRatio(), aperture, dist_to_focus);
+
+    auto material = Materials::Lambertian(color(0.8, 0.2, 0.1));
+    m_scene.Add(Shapes::Sphere(point3(0, 0, 0), 1.0f), material);
+    
+  } break;
   default:
     throw(std::runtime_error("Invalid scene selected"));
     break;

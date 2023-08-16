@@ -8,7 +8,7 @@
 
 namespace RTIAW::Render {
 class HittableObjectList {
-public:
+ public:
   HittableObjectList() = default;
 
   void Clear() { m_objects.clear(); }
@@ -16,14 +16,18 @@ public:
   // void Add(const HittableObject &object) { m_objects.push_back(object); }
   // void Add(HittableObject &&object) { m_objects.push_back(object); }
 
-  // template <typename... Args> void Construct(Args &&...args) { m_objects.emplace_back(std::forward<Args>(args)...); }
+  // template <typename... Args> void Construct(Args &&...args) {
+  // m_objects.emplace_back(std::forward<Args>(args)...); }
 
   [[nodiscard]] HitResult Hit(const Ray &r, float t_min, float t_max) const;
 
-private:
+  std::vector<HittableObject> GetObjects() { return m_objects; };
+  std::vector<Material> GetMaterials() { return materials; };
+
+ private:
   std::vector<HittableObject> m_objects;
   std::vector<Material> materials;
 };
-} // namespace RTIAW::Render
+}  // namespace RTIAW::Render
 
 #endif

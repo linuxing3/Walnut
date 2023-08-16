@@ -22,3 +22,8 @@ Walnut--Modules/
 
 # imgui
 imgui.ini
+Genesis/Genesis
+Raytracing/Raytracing
+Raytracing/Raytracing.exe
+WalnutApp/WalnutApp
+WalnutApp/imgui.ini.WalnutApp

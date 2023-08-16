@@ -16,12 +16,13 @@ namespace RTIAW::Render {
 class Renderer {
 public:
   enum class RenderState { Ready, Running, Finished, Stopped };
-  enum class Scenes { DefaultScene, ThreeSpheres, TestScene };
+  enum class Scenes { DefaultScene, ThreeSpheres, TestScene, OneSphereScene };
 
   Renderer() : m_logger{spdlog::stdout_color_st("Renderer")} {}
   Renderer(const Renderer &) = delete;
   ~Renderer();
 
+  HittableObjectList getScene() { return m_scene;};
   void SetImageSize(unsigned int x, unsigned int y);
   void SetScene(Scenes scene = Scenes::DefaultScene) { m_sceneType = scene; };
 
@@ -35,8 +36,8 @@ public:
   [[nodiscard]] RenderState State() const { return m_state; }
   [[nodiscard]] const void *ImageBuffer() const { return m_renderBuffer.empty() ? nullptr : m_renderBuffer.data(); }
 
-  unsigned int samplesPerPixel = 128;
-  unsigned int maxRayDepth = 128;
+  unsigned int samplesPerPixel = 10;
+  unsigned int maxRayDepth = 10;
   unsigned int lastRenderTimeMS = 0;
   float lastRenderTime = 0.0f;
   

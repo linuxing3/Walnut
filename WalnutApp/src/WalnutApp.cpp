@@ -5,7 +5,7 @@
 #include "Walnut/UI/UI.h"
 #include "RayLayer.h"
 
-class ExampleLayer : public Walnut::Layer
+class GameLayer : public Walnut::Layer
 {
 public:
 	virtual void OnUIRender() override
@@ -65,12 +65,12 @@ Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 
 	Walnut::Application* app = new Walnut::Application(spec);
     // NOTE:
-	std::shared_ptr<ExampleLayer> exampleLayer = std::make_shared<ExampleLayer>();
-    app->PushLayer(exampleLayer);
+	std::shared_ptr<RayLayer> rayLayer = std::make_shared<RayLayer>();
+    app->PushLayer(rayLayer);
     // TODO:
-	app->PushLayer<RayLayer>();
+	app->PushLayer<GameLayer>();
 
-	app->SetMenubarCallback([app, exampleLayer]()
+	app->SetMenubarCallback([app, rayLayer]()
 	{
 		if (ImGui::BeginMenu("File"))
 		{
@@ -85,7 +85,7 @@ Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 		{
 			if (ImGui::MenuItem("About"))
 			{
-				exampleLayer->ShowAboutModal();
+				// gameLayer->ShowAboutModal();
 			}
 			ImGui::EndMenu();
 		}
