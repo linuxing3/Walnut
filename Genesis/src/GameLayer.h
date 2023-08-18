@@ -1,5 +1,4 @@
 #include <algorithm>
-/* #include <basetsd.h> */
 #include <cstdint>
 
 #include <execution>
@@ -7,17 +6,23 @@
 #include <memory>
 
 #include "SpriteSheet.h"
-#include "Walnut/Application.h"
-#include "Walnut/EntryPoint.h"
 #include "Walnut/Image.h"
+#include "Walnut/Layer.h"
 #include "Walnut/Random.h"
 #include "Walnut/UI/UI.h"
 
 #include "Walnut/Timer.h"
 
-class ExampleLayer : public Walnut::Layer {
+namespace Genesis {
+  
+class GameLayer : public Walnut::Layer {
  public:
-  ExampleLayer() = default;
+  static std::shared_ptr<GameLayer> s_GameLayer;
+  static std::shared_ptr<GameLayer> Get() { return s_GameLayer; }
+
+ public:
+
+  GameLayer() = default;
   virtual void OnAttach() override {
     // Backend Data
     m_ImageData = new uint32_t[800 * 600];
@@ -198,7 +203,6 @@ class ExampleLayer : public Walnut::Layer {
   }
 
  private:
-  bool m_AboutModalOpen = false;
   uint32_t m_WindowWidth = 0;
   uint32_t m_WindowHeight = 0;
 
@@ -208,3 +212,5 @@ class ExampleLayer : public Walnut::Layer {
   std::vector<uint32_t> m_HorizotalIter;
   float m_LastRenderTime = 0.0F;
 };
+
+}  // namespace Genesis

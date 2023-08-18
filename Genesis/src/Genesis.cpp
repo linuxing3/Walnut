@@ -1,4 +1,10 @@
 #include "GameLayer.h"
+#include "Walnut/Application.h"
+#include "Walnut/EntryPoint.h"
+
+using namespace Genesis;
+
+static std::shared_ptr<GameLayer> s_GameLayer;
 
 Walnut::Application* Walnut::CreateApplication(int argc, char** argv) {
   Walnut::ApplicationSpecification spec;
@@ -7,10 +13,11 @@ Walnut::Application* Walnut::CreateApplication(int argc, char** argv) {
 
   Walnut::Application* app = new Walnut::Application(spec);
   // NOTE:
-  std::shared_ptr<ExampleLayer> exampleLayer = std::make_shared<ExampleLayer>();
-  app->PushLayer(exampleLayer);
+  std::shared_ptr<GameLayer> gameLayer = std::make_shared<GameLayer>();
+  app->PushLayer(gameLayer);
+  s_GameLayer = gameLayer;
 
-  app->SetMenubarCallback([app, exampleLayer]() {
+  app->SetMenubarCallback([app, gameLayer]() {
     if (ImGui::BeginMenu("File")) {
       if (ImGui::MenuItem("Exit")) {
         app->Close();
