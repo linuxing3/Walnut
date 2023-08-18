@@ -1,10 +1,14 @@
 #include "GameLayer.h"
 #include "Walnut/Application.h"
 #include "Walnut/EntryPoint.h"
+#include <memory>
 
 using namespace Genesis;
 
-static std::shared_ptr<GameLayer> s_GameLayer;
+namespace Genesis {
+static std::weak_ptr<GameLayer> s_GameLayer;
+std::shared_ptr<GameLayer> GameLayer::Get() { return s_GameLayer.lock(); }
+}  // namespace Genesis
 
 Walnut::Application* Walnut::CreateApplication(int argc, char** argv) {
   Walnut::ApplicationSpecification spec;
