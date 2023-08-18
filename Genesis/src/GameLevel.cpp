@@ -42,6 +42,7 @@ void Level::LoadLevelFromFile(const std::filesystem::path& path) {
   std::string pathStr = path.string();
   m_Tiles =
       (uint32_t*)stbi_load(pathStr.c_str(), &width, &height, &channels, 4);
+
   m_Grass = new uint32_t[width * height];
 
   m_Width = width;
@@ -51,12 +52,14 @@ void Level::LoadLevelFromFile(const std::filesystem::path& path) {
 void Level::RenderBackground(std::shared_ptr<GameRenderer> renderer) {
 
   uint32_t* buffer = renderer->GetImageData();
+
   uint32_t scale[2] = {m_Width / renderer->GetWidth(),
                        m_Height / renderer->GetHeight()};
-  for (uint32_t j = 0; j < m_Height; j++) {
-    for (uint32_t i = 0; i < m_Width; i++) {
+
+  for (uint32_t j = 0; j < renderer->GetHeight(); j++) {
+    for (uint32_t i = 0; i < renderer->GetWidth(); i++) {
       buffer[i + j * renderer->GetWidth()] =
-         m_Grass[i * scale[0] + j * scale[1] * m_Width];
+         m_Tiles[i / scale[0] + j / scale[1] * m_Width];
     }
   }
   renderer->GetFinalImage()->SetData(buffer);

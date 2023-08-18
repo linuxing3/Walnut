@@ -26,12 +26,17 @@ class GameLayer : public Walnut::Layer {
     m_SpriteSheet = std::make_shared<SpriteSheet>("spaceship.png");
     m_Renderer = std::make_shared<GameRenderer>(800, 600);
     m_Level = std::make_shared<Level>("rock.png");
+    m_LevelBackground = std::make_shared<Level>("background.jpg");
   };
 
   virtual void OnUpdate(float ts) override {
-    // m_Renderer->ClearSingleColor();
-    // m_Level->Render(m_Renderer);
-    m_Level->RenderTiles(4, 1, m_Renderer);
+    m_Renderer->Clear();
+    
+    m_LevelBackground->RenderBackground(m_Renderer);
+   
+    m_Level->Render(m_Renderer);
+
+    // m_Level->RenderTiles(4, 1, m_Renderer);
 
     m_Renderer->RenderSprite(4, 1);
   }
@@ -72,6 +77,7 @@ class GameLayer : public Walnut::Layer {
   std::shared_ptr<GameRenderer> m_Renderer;
   std::shared_ptr<SpriteSheet> m_SpriteSheet;
   std::shared_ptr<Level> m_Level;
+  std::shared_ptr<Level> m_LevelBackground;
 
   float m_LastRenderTime = 0.0F;
 };
