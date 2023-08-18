@@ -10,10 +10,10 @@ class Level {
   Level(const std::filesystem::path& path);
   ~Level();
   void LoadLevelFromFile(const std::filesystem::path& path);
-  void LoadTiles(int cx, int cy, int width, int height);
-  void LoadBackground(int cx, int cy, int width, int height);
-  
+
+  void RenderTiles(int cx, int cy, std::shared_ptr<GameRenderer> renderer);
   void Render(std::shared_ptr<GameRenderer> renderer);
+  void RenderBackground(std::shared_ptr<GameRenderer> renderer);
 
  private:
   std::filesystem::path m_Filepath;

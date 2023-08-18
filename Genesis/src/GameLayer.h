@@ -29,12 +29,11 @@ class GameLayer : public Walnut::Layer {
   };
 
   virtual void OnUpdate(float ts) override {
-    m_Renderer->ClearSingleColor();
+    // m_Renderer->ClearSingleColor();
+    // m_Level->Render(m_Renderer);
+    m_Level->RenderTiles(4, 1, m_Renderer);
 
     m_Renderer->RenderSprite(4, 1);
-
-    // render tiles
-    m_Level->Render(m_Renderer);
   }
 
   virtual void OnUIRender() override {
