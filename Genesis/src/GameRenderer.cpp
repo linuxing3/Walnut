@@ -88,14 +88,22 @@ void GameRenderer::RenderSprite(uint32_t cx, uint32_t cy) {
   m_FinalImage->SetData(m_ImageData);
 }
 
+void GameRenderer::Update() {
+  if (m_ImageData) {
+    GetFinalImage()->SetData(m_ImageData);
+  }
+}
+
 void GameRenderer::Clear() {
-  for (uint32_t i = 0; i < m_FinalImage->GetWidth() * m_FinalImage->GetHeight(); i++) {
+  for (uint32_t i = 0; i < m_FinalImage->GetWidth() * m_FinalImage->GetHeight();
+       i++) {
     m_ImageData[i] = Walnut::Random::UInt();
   }
 }
 
 void GameRenderer::ClearSingleColor(uint32_t color) {
-  for (uint32_t i = 0; i < m_FinalImage->GetWidth() * m_FinalImage->GetHeight(); i++) {
+  for (uint32_t i = 0; i < m_FinalImage->GetWidth() * m_FinalImage->GetHeight();
+       i++) {
     m_ImageData[i] = color;
   }
 }

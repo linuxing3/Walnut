@@ -34,7 +34,6 @@ void Level::Render(std::shared_ptr<GameRenderer> renderer) {
     }
   }
   
-  renderer->GetFinalImage()->SetData(buffer);
 };
 
 void Level::LoadLevelFromFile(const std::filesystem::path& path) {
@@ -62,7 +61,6 @@ void Level::RenderBackground(std::shared_ptr<GameRenderer> renderer) {
          m_Tiles[i / scale[0] + j / scale[1] * m_Width];
     }
   }
-  renderer->GetFinalImage()->SetData(buffer);
 }
 
 void Level::RenderTiles(int cx, int cy, std::shared_ptr<GameRenderer> renderer) {
@@ -89,6 +87,5 @@ void Level::RenderTiles(int cx, int cy, std::shared_ptr<GameRenderer> renderer) 
         }
       }
     };
-  renderer->GetFinalImage()->SetData(buffer);
 }
 };  // namespace Genesis

@@ -14,6 +14,7 @@ class GameRenderer {
   void OnResize(uint32_t width, uint32_t height);
   void RenderSprite(uint32_t cx, uint32_t cy);
   void Clear();
+  void Update();
   void ClearSingleColor(uint32_t color = 0xff7f007f);
 
   uint32_t *GetImageData() { return m_ImageData; };

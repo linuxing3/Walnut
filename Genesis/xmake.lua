@@ -29,9 +29,8 @@ if is_os('windows') then
     -- use deps
     add_deps('Walnut')
     after_build(function(target)
-        os.cp('Assets/images/spaceship.png', target:targetdir())
-        os.cp('Assets/images/background.jpg', target:targetdir())
-        os.cp('Assets/images/rock.png', target:targetdir())
+        os.cp('../Assets/images/*.png', target:targetdir())
+        os.cp('../Assets/images/*.jpg', target:targetdir())
     end)
 else
     target('Genesis')
@@ -45,8 +44,7 @@ else
     -- use deps
     add_deps('Walnut')
     after_build(function(target)
-        os.cp('../Assets/images/spaceship.png', target:targetdir())
-        os.cp('../Assets/images/background.jpg', target:targetdir())
-        os.cp('../Assets/images/rock.png', target:targetdir())
+        os.cp('../Assets/images/*.png', target:targetdir())
+        os.cp('../Assets/images/*.jpg', target:targetdir())
     end)
 end
