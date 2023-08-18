@@ -62,10 +62,9 @@ void GameRenderer::OnResize(uint32_t width, uint32_t height) {
   m_ImageData = new uint32_t[width * height];
 }
 
-void GameRenderer::Render(uint32_t cx, uint32_t cy) {
+void GameRenderer::RenderSprite(uint32_t cx, uint32_t cy) {
   // Spritsheet
   auto ss = Genesis::GameLayer::Get()->GetSpriteSheet();
-  ss->load();
   uint32_t spriteSize = 40;
   uint32_t spritePadding = 10;
   uint32_t xp = cx * spriteSize, yp = cy * spriteSize;
@@ -80,7 +79,7 @@ void GameRenderer::Render(uint32_t cx, uint32_t cy) {
     for (uint32_t x = 0; x < spriteSize; x++) {
       uint32_t color = ss->GetPixels()[(xp + x) + (yp + y) * ss->GetWidth()];
 
-      for (uint32_t i = 0; i < 2; i++) {
+      for (uint32_t i = 0; i < 1; i++) {
         m_ImageData[(xt + x + (spriteSize + spritePadding) * i) +
                     (yt + y) * m_FinalImage->GetWidth()] = color;
       }
@@ -92,5 +91,11 @@ void GameRenderer::Render(uint32_t cx, uint32_t cy) {
 void GameRenderer::Clear() {
   for (uint32_t i = 0; i < m_FinalImage->GetWidth() * m_FinalImage->GetHeight(); i++) {
     m_ImageData[i] = Walnut::Random::UInt();
+  }
+}
+
+void GameRenderer::ClearSingleColor(uint32_t color) {
+  for (uint32_t i = 0; i < m_FinalImage->GetWidth() * m_FinalImage->GetHeight(); i++) {
+    m_ImageData[i] = color;
   }
 }

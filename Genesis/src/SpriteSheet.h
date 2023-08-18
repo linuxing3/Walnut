@@ -9,9 +9,6 @@ class SpriteSheet {
   SpriteSheet() = delete;
   SpriteSheet(const std::string path);
   ~SpriteSheet() = default;
-  //   SpriteSheet(const SpriteSheet&) = delete;
-  //   SpriteSheet(SpriteSheet&&) = delete;
-  //   SpriteSheet& operator=(const SpriteSheet&) = delete;
 
   void load();
 

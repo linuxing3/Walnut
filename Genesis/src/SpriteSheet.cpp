@@ -10,7 +10,9 @@
 
 #include "stb_image.h"
 
-SpriteSheet::SpriteSheet(const std::string path) : m_Filepath(path) {}
+SpriteSheet::SpriteSheet(const std::string path) : m_Filepath(path) {
+  load();
+}
 
 void SpriteSheet::load() {
   int width, height, channels;

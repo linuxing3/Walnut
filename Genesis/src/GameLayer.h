@@ -7,6 +7,7 @@
 
 #include "GameRenderer.h"
 #include "SpriteSheet.h"
+#include "GameLevel.h"
 #include "Walnut/Image.h"
 #include "Walnut/Layer.h"
 #include "Walnut/Random.h"
@@ -24,11 +25,16 @@ class GameLayer : public Walnut::Layer {
   GameLayer() {
     m_SpriteSheet = std::make_shared<SpriteSheet>("spaceship.png");
     m_Renderer = std::make_shared<GameRenderer>(800, 600);
+    m_Level = std::make_shared<Level>("background.jpg");
   };
 
   virtual void OnUpdate(float ts) override {
-    m_Renderer->Clear();
-    m_Renderer->Render(4, 1);
+    m_Renderer->ClearSingleColor();
+
+    m_Renderer->RenderSprite(4, 1);
+
+    // render tiles
+    // m_Level->Render(m_Renderer);
   }
 
   virtual void OnUIRender() override {
@@ -47,22 +53,16 @@ class GameLayer : public Walnut::Layer {
     }
     ImGui::End();
 
-    resize();
     render();
-  }
-
-  void resize() {
-    auto finalImage = m_Renderer->GetFinalImage();
-    if (m_WindowHeight != finalImage->GetHeight() ||
-        m_WindowWidth != finalImage->GetWidth()) {
-      m_Renderer->OnResize(m_WindowWidth, m_WindowHeight);
-    }
   }
 
   void render() {
     Walnut::Timer timer;
     m_LastRenderTime = timer.ElapsedMillis();
+    resize();
   }
+
+  void resize() { m_Renderer->OnResize(m_WindowWidth, m_WindowHeight); }
 
   std::shared_ptr<SpriteSheet> GetSpriteSheet() { return m_SpriteSheet; };
 
@@ -72,6 +72,7 @@ class GameLayer : public Walnut::Layer {
 
   std::shared_ptr<GameRenderer> m_Renderer;
   std::shared_ptr<SpriteSheet> m_SpriteSheet;
+  std::shared_ptr<Level> m_Level;
 
   float m_LastRenderTime = 0.0F;
 };
