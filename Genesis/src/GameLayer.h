@@ -25,7 +25,7 @@ class GameLayer : public Walnut::Layer {
   GameLayer() {
     m_SpriteSheet = std::make_shared<SpriteSheet>("spaceship.png");
     m_Renderer = std::make_shared<GameRenderer>(800, 600);
-    m_Level = std::make_shared<Level>("background.jpg");
+    m_Level = std::make_shared<Level>("rock.png");
   };
 
   virtual void OnUpdate(float ts) override {
@@ -34,7 +34,7 @@ class GameLayer : public Walnut::Layer {
     m_Renderer->RenderSprite(4, 1);
 
     // render tiles
-    // m_Level->Render(m_Renderer);
+    m_Level->Render(m_Renderer);
   }
 
   virtual void OnUIRender() override {

@@ -28,10 +28,11 @@ void Level::Render(std::shared_ptr<GameRenderer> renderer) {
       if (i > renderer->GetWidth())
         break;
       uint32_t tileID = m_Tiles[i + j * m_Width];
-      // buffer[i + j * renderer->GetWidth()] = tileID;
-      // std::cout<< "Tile ID: " << tileID << std::endl;
+      buffer[i + j * renderer->GetWidth()] = tileID;
     }
   }
+  
+  renderer->GetFinalImage()->SetData(buffer);
 };
 
 void Level::LoadLevelFromFile(const std::filesystem::path& path) {
