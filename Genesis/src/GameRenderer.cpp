@@ -65,15 +65,7 @@ void GameRenderer::OnResize(uint32_t width, uint32_t height) {
 void GameRenderer::RenderSprite(uint32_t cx, uint32_t cy) {
   // Spritsheet
   auto ss = Genesis::GameLayer::Get()->GetSpriteSheet();
-  uint32_t spriteSize = 40;
-  uint32_t spritePadding = 10;
   uint32_t xp = cx * spriteSize, yp = cy * spriteSize;
-
-  uint32_t middleX = m_FinalImage->GetWidth() / 2;
-  uint32_t middleY = m_FinalImage->GetHeight() * 3 / 4;
-
-  uint32_t xt = (middleX - spriteSize / 2);
-  uint32_t yt = (middleY - spriteSize / 2);
 
   for (uint32_t y = 0; y < spriteSize; y++)
     for (uint32_t x = 0; x < spriteSize; x++) {
@@ -88,10 +80,16 @@ void GameRenderer::RenderSprite(uint32_t cx, uint32_t cy) {
   m_FinalImage->SetData(m_ImageData);
 }
 
-void GameRenderer::Update() {
-  if (m_ImageData) {
-    GetFinalImage()->SetData(m_ImageData);
-  }
+void GameRenderer::Update(float ts) {
+  float offset = speed * ts * 1000 * 1000;
+
+  xt += offset;
+  yt = 500;
+
+  if (xt > 800 - spriteSize / 2)
+    xt -= offset;
+  if (xt < spriteSize / 2)
+    xt += offset;
 }
 
 void GameRenderer::Clear() {

@@ -25,6 +25,7 @@ class GameLayer : public Walnut::Layer {
   GameLayer() {
     m_Renderer = std::make_shared<GameRenderer>(800, 600);
     m_Player = std::make_shared<SpriteSheet>("spaceship.png");
+
     m_Level = std::make_shared<Level>("rock.png");
     m_LevelBackground = std::make_shared<Level>("background.jpg");
 
@@ -35,7 +36,7 @@ class GameLayer : public Walnut::Layer {
   };
 
   virtual void OnUpdate(float ts) override {
-    m_Renderer->Clear();
+    /* m_Renderer->Clear(); */
 
     m_LevelBackground->RenderBackground(m_Renderer);
 
@@ -45,9 +46,8 @@ class GameLayer : public Walnut::Layer {
     }
 
     m_Renderer->RenderSprite(4, 1);
-    
-    m_Renderer->Update();
-    
+
+    m_Renderer->Update(ts);
   }
 
   virtual void OnUIRender() override {
@@ -79,6 +79,11 @@ class GameLayer : public Walnut::Layer {
 
   std::shared_ptr<SpriteSheet> GetSpriteSheet() { return m_Player; };
 
+  std::shared_ptr<Level> GetLevel() { return m_Level; };
+  std::shared_ptr<Level> GetLevelBackround() { return m_LevelBackground; };
+
+  std::vector<std::shared_ptr<Level>> GetEnemies() { return m_Enemies; };
+
  private:
   uint32_t m_WindowWidth = 0;
   uint32_t m_WindowHeight = 0;
@@ -88,6 +93,7 @@ class GameLayer : public Walnut::Layer {
 
   std::shared_ptr<GameRenderer> m_Renderer;
   std::shared_ptr<SpriteSheet> m_Player;
+
   std::shared_ptr<Level> m_Level;
   std::shared_ptr<Level> m_LevelBackground;
 
