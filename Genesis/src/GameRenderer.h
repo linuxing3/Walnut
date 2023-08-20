@@ -11,6 +11,9 @@ class GameRenderer {
  public:
   uint32_t xt = 0;
   uint32_t yt = 0;
+  uint32_t spriteSize = 40;
+  uint32_t spritePadding = 10;
+
  public:
   GameRenderer(uint32_t width, uint32_t height);
 
@@ -37,7 +40,4 @@ class GameRenderer {
  private:
   std::shared_ptr<Walnut::Image> m_FinalImage;
   uint32_t *m_ImageData = nullptr;
-  uint32_t spriteSize = 40;
-  uint32_t spritePadding = 10;
-  float speed = 2.25f;
 };

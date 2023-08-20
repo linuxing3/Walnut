@@ -11,7 +11,7 @@ class GameObject {
    public:
     glm::vec2 Postion = {0.0f, 0.0f};
     glm::vec2 Size = {0.0f, 0.0f};
-    glm::vec2 Velocity = {2.5f, 0.0f};
+    glm::vec2 Velocity = {2.5f, 1.5f};
     glm::vec3 Color = {0.0f, 0.0f, 0.0f};
     float Rotation = 0.25f;
     

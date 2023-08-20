@@ -41,17 +41,15 @@ class GameLayer : public Walnut::Layer {
   };
 
   virtual void OnUpdate(float ts) override {
-    /* m_Renderer->Clear(); */
+    m_Renderer->ClearSingleColor(); 
 
     // m_LevelBackground->RenderBackground(m_Renderer);
 
-    // for (uint32_t i = 0; i < m_EnemyMaxCount; i++) {
-    //   std::shared_ptr<Level> enemy = m_Enemies[i];
-    //   enemy->Render(m_Renderer);
-    // }
+    for (uint32_t i = 0; i < m_EnemyMaxCount; i++) {
+      std::shared_ptr<Level> enemy = m_Enemies[i];
+      enemy->Render(m_Renderer);
+    }
 
-    // m_Renderer->RenderSprite(4, 1);
-    
     m_PlayerObject->Draw(m_Renderer);
     m_PlayerObject->Update(m_Renderer, ts);
 
@@ -84,7 +82,8 @@ class GameLayer : public Walnut::Layer {
 
   void resize() { m_Renderer->OnResize(m_WindowWidth, m_WindowHeight); }
 
-  std::shared_ptr<SpriteSheet> GetSpriteSheet() { return m_Player; };
+  std::shared_ptr<SpriteSheet> GetPlayer() { return m_Player; };
+  std::shared_ptr<SpriteSheet> GetPlayerObject() { return m_PlayerObject->getSpritSheet(); };
 
   std::shared_ptr<Level> GetLevel() { return m_Level; };
   std::shared_ptr<Level> GetLevelBackround() { return m_LevelBackground; };

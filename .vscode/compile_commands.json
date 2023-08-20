@@ -1,6 +1,31 @@
 [
 {
   "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/vendor/imgui/imgui.cpp.o", "vendor/imgui/imgui.cpp"],
+  "file": "vendor/imgui/imgui.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/vendor/imgui/imgui_draw.cpp.o", "vendor/imgui/imgui_draw.cpp"],
+  "file": "vendor/imgui/imgui_draw.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/vendor/imgui/imgui_tables.cpp.o", "vendor/imgui/imgui_tables.cpp"],
+  "file": "vendor/imgui/imgui_tables.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/vendor/imgui/imgui_widgets.cpp.o", "vendor/imgui/imgui_widgets.cpp"],
+  "file": "vendor/imgui/imgui_widgets.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/vendor/imgui/imgui_demo.cpp.o", "vendor/imgui/imgui_demo.cpp"],
+  "file": "vendor/imgui/imgui_demo.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
   "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/nil/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Random.cpp.o", "Walnut/Source/Walnut/Random.cpp"],
   "file": "Walnut/Source/Walnut/Random.cpp"
 },
@@ -78,6 +103,16 @@
   "directory": "/home/vagrant/workspace/cxx/walnut",
   "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IGenesis/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-IGenesis/nil/include", "-DNDEBUG", "-o", "build/.objs/Genesis/linux/x86_64/release/Genesis/src/GameLevel.cpp.o", "Genesis/src/GameLevel.cpp"],
   "file": "Genesis/src/GameLevel.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IGenesis/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-IGenesis/nil/include", "-DNDEBUG", "-o", "build/.objs/Genesis/linux/x86_64/release/Genesis/src/Camera.cpp.o", "Genesis/src/Camera.cpp"],
+  "file": "Genesis/src/Camera.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IGenesis/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-IGenesis/nil/include", "-DNDEBUG", "-o", "build/.objs/Genesis/linux/x86_64/release/Genesis/src/GameObject.cpp.o", "Genesis/src/GameObject.cpp"],
+  "file": "Genesis/src/GameObject.cpp"
 },
 {
   "directory": "/home/vagrant/workspace/cxx/walnut",
@@ -198,29 +233,4 @@
   "directory": "/home/vagrant/workspace/cxx/walnut",
   "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/linux_joystick.c.o", "vendor/GLFW/src/linux_joystick.c"],
   "file": "vendor/GLFW/src/linux_joystick.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/vendor/imgui/imgui.cpp.o", "vendor/imgui/imgui.cpp"],
-  "file": "vendor/imgui/imgui.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/vendor/imgui/imgui_draw.cpp.o", "vendor/imgui/imgui_draw.cpp"],
-  "file": "vendor/imgui/imgui_draw.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/vendor/imgui/imgui_tables.cpp.o", "vendor/imgui/imgui_tables.cpp"],
-  "file": "vendor/imgui/imgui_tables.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/vendor/imgui/imgui_widgets.cpp.o", "vendor/imgui/imgui_widgets.cpp"],
-  "file": "vendor/imgui/imgui_widgets.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/vendor/imgui/imgui_demo.cpp.o", "vendor/imgui/imgui_demo.cpp"],
-  "file": "vendor/imgui/imgui_demo.cpp"
 }]

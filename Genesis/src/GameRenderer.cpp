@@ -1,4 +1,5 @@
 #include "GameRenderer.h"
+#include "GameObject.h"
 #include "SpriteSheet.h"
 #include "Walnut/Image.h"
 #include "Walnut/Random.h"
@@ -62,7 +63,7 @@ void GameRenderer::OnResize(uint32_t width, uint32_t height) {
 
 void GameRenderer::RenderSprite(uint32_t cx, uint32_t cy) {
   // Spritsheet
-  auto ss = Genesis::GameLayer::Get()->GetSpriteSheet();
+  auto ss = Genesis::GameLayer::Get()->GetPlayerObject();
   uint32_t xp = cx * spriteSize, yp = cy * spriteSize;
 
   for (uint32_t y = 0; y < spriteSize; y++)
