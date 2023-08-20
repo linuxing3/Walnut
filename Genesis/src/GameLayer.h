@@ -7,6 +7,7 @@
 
 #include "GameLevel.h"
 #include "GameRenderer.h"
+#include "GameObject.h"
 #include "SpriteSheet.h"
 #include "Walnut/Image.h"
 #include "Walnut/Layer.h"
@@ -28,6 +29,10 @@ class GameLayer : public Walnut::Layer {
 
     m_Level = std::make_shared<Level>("rock.png");
     m_LevelBackground = std::make_shared<Level>("background.jpg");
+    
+    // FIXME: tranform must be initialized!
+    auto tranform = std::make_shared<GameObject::Transform2D>();
+    m_PlayerObject = std::make_shared<GameObject>(m_Player, tranform);
 
     for (uint32_t i = 0; i < m_EnemyMaxCount; i++) {
       auto enemy = std::make_shared<Level>("fire_blue.png");
@@ -38,16 +43,18 @@ class GameLayer : public Walnut::Layer {
   virtual void OnUpdate(float ts) override {
     /* m_Renderer->Clear(); */
 
-    m_LevelBackground->RenderBackground(m_Renderer);
+    // m_LevelBackground->RenderBackground(m_Renderer);
 
-    for (uint32_t i = 0; i < m_EnemyMaxCount; i++) {
-      std::shared_ptr<Level> enemy = m_Enemies[i];
-      enemy->Render(m_Renderer);
-    }
+    // for (uint32_t i = 0; i < m_EnemyMaxCount; i++) {
+    //   std::shared_ptr<Level> enemy = m_Enemies[i];
+    //   enemy->Render(m_Renderer);
+    // }
 
-    m_Renderer->RenderSprite(4, 1);
+    // m_Renderer->RenderSprite(4, 1);
+    
+    m_PlayerObject->Draw(m_Renderer);
+    m_PlayerObject->Update(m_Renderer, ts);
 
-    m_Renderer->Update(ts);
   }
 
   virtual void OnUIRender() override {
@@ -93,6 +100,7 @@ class GameLayer : public Walnut::Layer {
 
   std::shared_ptr<GameRenderer> m_Renderer;
   std::shared_ptr<SpriteSheet> m_Player;
+  std::shared_ptr<GameObject> m_PlayerObject;
 
   std::shared_ptr<Level> m_Level;
   std::shared_ptr<Level> m_LevelBackground;

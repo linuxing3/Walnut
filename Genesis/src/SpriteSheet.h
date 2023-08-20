@@ -6,8 +6,8 @@
 
 class SpriteSheet {
  public:
-  SpriteSheet() = delete;
   SpriteSheet(const std::string path);
+  SpriteSheet() = default;
   ~SpriteSheet() = default;
 
   void load();

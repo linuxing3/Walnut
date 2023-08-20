@@ -1,10 +1,8 @@
 #include "GameRenderer.h"
-
 #include "SpriteSheet.h"
 #include "Walnut/Image.h"
 #include "Walnut/Random.h"
 #include "glm/fwd.hpp"
-#include "glm/geometric.hpp"
 #include <algorithm>
 #include <cstdint>
 #include <execution>
@@ -80,17 +78,8 @@ void GameRenderer::RenderSprite(uint32_t cx, uint32_t cy) {
   m_FinalImage->SetData(m_ImageData);
 }
 
-void GameRenderer::Update(float ts) {
-  float offset = speed * ts * 1000 * 1000;
-
-  xt += offset;
-  yt = 500;
-
-  if (xt > 800 - spriteSize / 2)
-    xt -= offset;
-  if (xt < spriteSize / 2)
-    xt += offset;
-}
+// TODO: transform and movement
+void GameRenderer::Update(float ts) {}
 
 void GameRenderer::Clear() {
   for (uint32_t i = 0; i < m_FinalImage->GetWidth() * m_FinalImage->GetHeight();
