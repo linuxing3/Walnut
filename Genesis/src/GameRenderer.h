@@ -15,6 +15,8 @@ class GameRenderer {
   uint32_t spritePadding = 10;
   uint32_t m_WindowWidth = 0;
   uint32_t m_WindowHeight = 0;
+  uint32_t m_ScaleFactor = 4;
+
 
  public:
   GameRenderer(uint32_t width, uint32_t height);

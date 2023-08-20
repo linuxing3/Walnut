@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 
+#define stbi__vertically_flip_on_load
 #include "stb_image.h"
 
 SpriteSheet::SpriteSheet(const std::string path) : m_Filepath(path) {

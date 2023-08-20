@@ -1,8 +1,10 @@
 #pragma once
 #include "GameObject.h"
+#include "Walnut/Random.h"
 #include "glm/ext/matrix_transform.hpp"
 #include "glm/fwd.hpp"
 #include "glm/trigonometric.hpp"
+#include "imgui.h"
 #include <cstddef>
 #include <cstdint>
 #include <cstring>
@@ -31,43 +33,44 @@ void GameObject::Draw(std::shared_ptr<GameRenderer> renderer) {
                       glm::vec3(0.0f, 0.0f, 1.0f));
   model = glm::scale(model, glm::vec3(m_Transform->Size, 1.0f));
 #endif
+  // change sprite
+  m_Coodx = Walnut::Random::UInt(0,7);
   renderer->RenderSprite(m_Coodx, m_Coody);
 };
 
 void GameObject::Update(std::shared_ptr<GameRenderer> renderer, float ts) {
 
-  // change sprite
-  {
-    m_Coodx += 1;
-    if (m_Coodx > 8) {
-      m_Coodx = 0;
-    }
-    sleep(ts * 10);
-  }
-
-  // move sprite
-  float offset_x = m_Transform->Velocity.x * ts * 100;
-  float offset_y = m_Transform->Velocity.y * ts * 100;
-
-  renderer->xt += offset_x;
-  renderer->yt += offset_y;
-
-  std::cout << renderer->xt << std::endl;
-
   auto width = renderer->m_WindowWidth;
   auto height = renderer->m_WindowHeight;
-  auto spriteSize = renderer->spriteSize;
+  auto spriteSize = renderer->spriteSize * 2;
 
-  // FIXME: must check window size fo ot crash
-  if (renderer->xt > width - spriteSize)
-    renderer->xt -= offset_x;
-  if (renderer->xt < spriteSize)
+  // move sprite
+  float offset_x = m_Transform->Velocity.x * ts * 1000;
+  float offset_y = m_Transform->Velocity.y * ts * 1000;
+
+  if (left) {
     renderer->xt += offset_x;
-
-  if (renderer->yt > height - spriteSize)
-    renderer->yt -= offset_y;
-  if (renderer->yt < spriteSize)
+  } else {
+    renderer->xt -= offset_x;
+  }
+  if (up) {
     renderer->yt += offset_y;
+  } else {
+    renderer->yt -= offset_y;
+  }
+
+  if (renderer->xt > width - spriteSize) {
+    left = false;
+  };
+  if (renderer->xt < spriteSize) {
+    left = true;
+  }
+  if (renderer->yt > height - spriteSize) {
+    up = false;
+  }
+  if (renderer->yt < spriteSize) {
+    up = true;
+  }
 
   renderer->Update(ts);
 };

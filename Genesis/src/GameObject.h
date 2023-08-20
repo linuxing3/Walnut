@@ -11,7 +11,7 @@ class GameObject {
    public:
     glm::vec2 Postion = {0.0f, 0.0f};
     glm::vec2 Size = {2.0f, 2.0f};
-    glm::vec2 Velocity = {2.5f, 1.5f};
+    glm::vec2 Velocity = {0.5f, 0.25f};
     glm::vec3 Color = {0.0f, 0.0f, 0.0f};
     float Rotation = 0.25f;
     
@@ -37,6 +37,9 @@ class GameObject {
              std::shared_ptr<Transform2D> transform);
   ~GameObject();
   void Draw(std::shared_ptr<GameRenderer> renderer);
+
+  bool left = true;
+  bool up = true;
 
   bool m_IsSolid;
   bool m_Destroyed;

@@ -48,10 +48,10 @@ class GameLayer : public Walnut::Layer {
 
     // m_LevelBackground->RenderBackground(m_Renderer);
 
-    for (uint32_t i = 0; i < m_EnemyMaxCount; i++) {
-      std::shared_ptr<Level> enemy = m_Enemies[i];
-      enemy->Render(m_Renderer);
-    }
+    // for (uint32_t i = 0; i < m_EnemyMaxCount; i++) {
+    //   std::shared_ptr<Level> enemy = m_Enemies[i];
+    //   enemy->Render(m_Renderer);
+    // }
 
     m_PlayerObject->Draw(m_Renderer);
     m_PlayerObject->Update(m_Renderer, ts);
@@ -70,7 +70,7 @@ class GameLayer : public Walnut::Layer {
     if (finalImage) {
       ImGui::Image(finalImage->GetDescriptorSet(),
                    ImVec2((float)finalImage->GetWidth(),
-                          (float)finalImage->GetHeight()));
+                          (float)finalImage->GetHeight()),ImVec2(0,1), ImVec2(1,0));
     }
     ImGui::End();
 
