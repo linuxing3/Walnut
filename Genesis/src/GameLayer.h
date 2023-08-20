@@ -20,6 +20,9 @@ namespace Genesis {
 
 class GameLayer : public Walnut::Layer {
  public:
+  uint32_t m_WindowWidth = 0;
+  uint32_t m_WindowHeight = 0;
+
   static std::shared_ptr<GameLayer> Get();
 
  public:
@@ -91,8 +94,6 @@ class GameLayer : public Walnut::Layer {
   std::vector<std::shared_ptr<Level>> GetEnemies() { return m_Enemies; };
 
  private:
-  uint32_t m_WindowWidth = 0;
-  uint32_t m_WindowHeight = 0;
 
   uint32_t m_EnemyMaxCount = 10;
   std::vector<std::shared_ptr<Level>> m_Enemies;

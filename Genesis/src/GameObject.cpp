@@ -40,20 +40,23 @@ void GameObject::Update(std::shared_ptr<GameRenderer> renderer, float ts) {
 
   renderer->xt += offset_x;
   renderer->yt += offset_y;
-  
+
   std::cout << renderer->xt << std::endl;
 
+  auto width = renderer->m_WindowWidth;
+  auto height = renderer->m_WindowHeight;
   auto spriteSize = renderer->spriteSize;
-  // FIXME: must check window size fo ot crash
-  if (renderer->xt > 800)
-    renderer->xt = 800;
-  if (renderer->xt < 0)
-    renderer->xt = 0;
 
-  if (renderer->yt > 600)
-    renderer->yt = 600;
-  if (renderer->yt < 0)
-    renderer->yt = 0;
+  // FIXME: must check window size fo ot crash
+  if (renderer->xt > width - spriteSize)
+    renderer->xt -= offset_x;
+  if (renderer->xt < spriteSize)
+    renderer->xt += offset_x;
+
+  if (renderer->yt > height - spriteSize)
+    renderer->yt -= offset_y;
+  if (renderer->yt < spriteSize)
+    renderer->yt += offset_y;
 
   renderer->Update(ts);
 };

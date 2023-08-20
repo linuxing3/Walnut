@@ -59,6 +59,9 @@ void GameRenderer::OnResize(uint32_t width, uint32_t height) {
 
   delete[] m_ImageData;
   m_ImageData = new uint32_t[width * height];
+  
+  m_WindowHeight = height;
+  m_WindowWidth = width;
 }
 
 void GameRenderer::RenderSprite(uint32_t cx, uint32_t cy) {
