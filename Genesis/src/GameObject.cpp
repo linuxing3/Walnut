@@ -3,10 +3,13 @@
 #include "glm/ext/matrix_transform.hpp"
 #include "glm/fwd.hpp"
 #include "glm/trigonometric.hpp"
+#include <cstddef>
 #include <cstdint>
+#include <cstring>
 #include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
 #include <memory>
+#include <unistd.h>
 #include <utility>
 
 GameObject::~GameObject(){};
@@ -16,25 +19,33 @@ GameObject::GameObject(std::shared_ptr<SpriteSheet> spritSheet,
     : m_SpritSheet(std::move(spritSheet)), m_Transform(transform){};
 
 void GameObject::Draw(std::shared_ptr<GameRenderer> renderer) {
-  // uint32_t* pixels = renderer->GetImageData();
 
-  // glm::mat4 model = glm::mat4(1.0);
-  // model = glm::translate(model, glm::vec3(m_Coodx, m_Coody, 0.0));
-  // model = glm::rotate(model, glm::radians(m_Transform->Rotation),
-  //                     glm::vec3(0.0f, 0.0f, 1.0f));
-  // model = glm::scale(model, glm::vec3(m_Transform->Size, 1.0f));
+#ifdef MVP
+  uint32_t w, h;
+  void* data = renderer->GetFinalImage()->Decode(
+      renderer->GetImageData(), sizeof(renderer->GetImageData()), w, h);
 
-  //   for (uint32_t y = 0; y < renderer->GetHeight(); y++) {
-  //     for (uint32_t x = 0; x < renderer->GetWidth(); x++)
-  //       pixels[x + y * renderer->GetWidth()] = pixels[x + y *
-  //       renderer->GetWidth()];
-  //   }
-
+  glm::mat4 model = glm::mat4(1.0);
+  model = glm::translate(model, glm::vec3(m_Coodx, m_Coody, 0.0));
+  model = glm::rotate(model, glm::radians(m_Transform->Rotation),
+                      glm::vec3(0.0f, 0.0f, 1.0f));
+  model = glm::scale(model, glm::vec3(m_Transform->Size, 1.0f));
+#endif
   renderer->RenderSprite(m_Coodx, m_Coody);
 };
 
 void GameObject::Update(std::shared_ptr<GameRenderer> renderer, float ts) {
 
+  // change sprite
+  {
+    m_Coodx += 1;
+    if (m_Coodx > 8) {
+      m_Coodx = 0;
+    }
+    sleep(ts * 10);
+  }
+
+  // move sprite
   float offset_x = m_Transform->Velocity.x * ts * 100;
   float offset_y = m_Transform->Velocity.y * ts * 100;
 

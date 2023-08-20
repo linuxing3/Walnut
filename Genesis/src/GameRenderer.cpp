@@ -59,7 +59,7 @@ void GameRenderer::OnResize(uint32_t width, uint32_t height) {
 
   delete[] m_ImageData;
   m_ImageData = new uint32_t[width * height];
-  
+
   m_WindowHeight = height;
   m_WindowWidth = width;
 }
@@ -72,6 +72,8 @@ void GameRenderer::RenderSprite(uint32_t cx, uint32_t cy) {
   for (uint32_t y = 0; y < spriteSize; y++)
     for (uint32_t x = 0; x < spriteSize; x++) {
       uint32_t color = ss->GetPixels()[(xp + x) + (yp + y) * ss->GetWidth()];
+      if (color == 0xff000000)
+        break;
 
       for (uint32_t i = 0; i < 1; i++) {
         m_ImageData[(xt + x + (spriteSize + spritePadding) * i) +
