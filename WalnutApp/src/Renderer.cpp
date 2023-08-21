@@ -22,7 +22,7 @@ static uint32_t ConvertToRGBA(const glm::vec4 &color) {
 
 }  // namespace Utils
 
-void GameRenderer::OnResize(uint32_t width, uint32_t height) {
+void Renderer::OnResize(uint32_t width, uint32_t height) {
   if (m_FinalImage) {
     /* std::cout << "Checking resize necessity"; */
     if (m_FinalImage->GetWidth() == width &&
@@ -57,7 +57,7 @@ void GameRenderer::OnResize(uint32_t width, uint32_t height) {
 #endif  // MT
 }
 
-void GameRenderer::Render(const Scene &scene, const Camera &camera) {
+void Renderer::Render(const Scene &scene, const Camera &camera) {
   m_ActiveScene = &scene;
   m_ActiveCamera = &camera;
 
@@ -105,14 +105,14 @@ void GameRenderer::Render(const Scene &scene, const Camera &camera) {
     m_FrameIndex = 1;
 }
 
-glm::vec4 GameRenderer::PerPixelSimpleColor(uint32_t x, uint32_t y) {
+glm::vec4 Renderer::PerPixelSimpleColor(uint32_t x, uint32_t y) {
   glm::vec3 skyColor = glm::vec3(0.6f, 0.7f, 0.9f);
   return glm::vec4{skyColor, 1.0f};
 }
 
 // BUG: memory overload
 //
-glm::vec4 GameRenderer::PerPixel(uint32_t x, uint32_t y) {
+glm::vec4 Renderer::PerPixel(uint32_t x, uint32_t y) {
   Ray ray;  // origin + direction
   ray.Origin = m_ActiveCamera->GetPosition();
   ray.Direction =
@@ -125,7 +125,7 @@ glm::vec4 GameRenderer::PerPixel(uint32_t x, uint32_t y) {
   int bounces = 5;
   for (int i = 0; i < bounces; i++) {
     // [repeatedly] trace ray with reflection and material
-    GameRenderer::HitPayload payload = TraceRay(ray);
+    Renderer::HitPayload payload = TraceRay(ray);
 
     if (payload.HitDistance < 0.0f) {
       glm::vec3 skyColor = glm::vec3(0.6f, 0.7f, 0.9f);
@@ -161,7 +161,7 @@ glm::vec4 GameRenderer::PerPixel(uint32_t x, uint32_t y) {
   return glm::vec4(light, 1.0f);
 }
 
-glm::vec4 GameRenderer::PerPixelSolidColor(uint32_t x, uint32_t y) {
+glm::vec4 Renderer::PerPixelSolidColor(uint32_t x, uint32_t y) {
   Ray ray;  // origin + direction
   ray.Origin = m_ActiveCamera->GetPosition();
   ray.Direction =
@@ -174,7 +174,7 @@ glm::vec4 GameRenderer::PerPixelSolidColor(uint32_t x, uint32_t y) {
   int bounces = 5;
   for (int i = 0; i < bounces; i++) {
     // [repeatedly] trace ray with reflection and material
-    GameRenderer::HitPayload payload = TraceRay(ray);
+    Renderer::HitPayload payload = TraceRay(ray);
     if (payload.HitDistance < 0.0f) {
       glm::vec3 skyColor = glm::vec3(0.6f, 0.7f, 0.9f);
       light += skyColor * contribution;
@@ -196,7 +196,7 @@ glm::vec4 GameRenderer::PerPixelSolidColor(uint32_t x, uint32_t y) {
   return glm::vec4(light, 1.0f);
 }
 
-GameRenderer::HitPayload GameRenderer::TraceRay(const Ray &ray) {
+Renderer::HitPayload Renderer::TraceRay(const Ray &ray) {
   // (bx^2 + by^2)t^2 + (2(axbx + ayby))t + (ax^2 + ay^2 - r^2) = 0
   // where
   // a = ray origin
@@ -238,9 +238,9 @@ GameRenderer::HitPayload GameRenderer::TraceRay(const Ray &ray) {
   return ClosestHit(ray, hitDistance, closestSphere);
 }
 
-GameRenderer::HitPayload GameRenderer::ClosestHit(const Ray &ray, float hitDistance,
+Renderer::HitPayload Renderer::ClosestHit(const Ray &ray, float hitDistance,
                                           int objectIndex) {
-  GameRenderer::HitPayload payload;
+  Renderer::HitPayload payload;
   payload.HitDistance = hitDistance;
   payload.ObjectIndex = objectIndex;
 
@@ -257,8 +257,8 @@ GameRenderer::HitPayload GameRenderer::ClosestHit(const Ray &ray, float hitDista
   return payload;
 }
 
-GameRenderer::HitPayload GameRenderer::Miss(const Ray &ray) {
-  GameRenderer::HitPayload payload;
+Renderer::HitPayload Renderer::Miss(const Ray &ray) {
+  Renderer::HitPayload payload;
   payload.HitDistance = -1.0f;
   return payload;
 }

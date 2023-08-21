@@ -34,7 +34,7 @@ void GameObject::Draw(std::shared_ptr<GameRenderer> renderer) {
   model = glm::scale(model, glm::vec3(m_Transform->Size, 1.0f));
 #endif
   // change sprite
-  m_Coodx = Walnut::Random::UInt(0,7);
+  m_Coodx = Walnut::Random::UInt(0, 7);
   renderer->RenderSprite(m_Coodx, m_Coody);
 };
 

@@ -17,7 +17,6 @@ class GameRenderer {
   uint32_t m_WindowHeight = 0;
   uint32_t m_ScaleFactor = 4;
 
-
  public:
   GameRenderer(uint32_t width, uint32_t height);
 
@@ -36,7 +35,7 @@ class GameRenderer {
 
   uint32_t GetWidth() { return m_FinalImage->GetWidth(); };
   uint32_t GetHeight() { return m_FinalImage->GetHeight(); };
-  uint32_t SetStartPosition(uint32_t _xt = 0, uint32_t _yt = 0) {
+  void SetStartPosition(uint32_t _xt = 0, uint32_t _yt = 0) {
     xt = _xt;
     yt = _yt;
   };

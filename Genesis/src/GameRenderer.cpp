@@ -73,11 +73,12 @@ void GameRenderer::RenderSprite(uint32_t cx, uint32_t cy) {
     for (uint32_t x = 0; x < spriteSize; x++) {
       uint32_t index_within_image = (xp + x) + (yp + y) * ss->GetWidth();
       uint32_t color = ss->GetPixels()[index_within_image];
-      if (color == 0xff000000)
-        color = 0xffff00ff;
+      if (color == 0xff000000 || color == 0xffff00ff)
+        continue;
 
-        uint32_t index_within_viewport = (xt + x )  + m_FinalImage->GetWidth() * (yt + y);
-        m_ImageData[index_within_viewport] = color;
+      uint32_t index_within_viewport =
+          (xt + x) + m_FinalImage->GetWidth() * (yt + y);
+      m_ImageData[index_within_viewport] = color;
     };
 
   m_FinalImage->SetData(m_ImageData);
