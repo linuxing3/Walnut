@@ -20,7 +20,7 @@ genesis: genesis-build
   #!/usr/bin/env bash
   set -euxo pipefail
   cd {{genesis_dir}}
-  xmake r Genesis
+  ./Genesis
 
 raytracing-build:
   #!/usr/bin/env bash

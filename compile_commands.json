@@ -1,116 +1,6 @@
 [
 {
   "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/context.c.o", "vendor/GLFW/src/context.c"],
-  "file": "vendor/GLFW/src/context.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/init.c.o", "vendor/GLFW/src/init.c"],
-  "file": "vendor/GLFW/src/init.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/input.c.o", "vendor/GLFW/src/input.c"],
-  "file": "vendor/GLFW/src/input.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/monitor.c.o", "vendor/GLFW/src/monitor.c"],
-  "file": "vendor/GLFW/src/monitor.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/null_init.c.o", "vendor/GLFW/src/null_init.c"],
-  "file": "vendor/GLFW/src/null_init.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/null_joystick.c.o", "vendor/GLFW/src/null_joystick.c"],
-  "file": "vendor/GLFW/src/null_joystick.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/null_monitor.c.o", "vendor/GLFW/src/null_monitor.c"],
-  "file": "vendor/GLFW/src/null_monitor.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/null_window.c.o", "vendor/GLFW/src/null_window.c"],
-  "file": "vendor/GLFW/src/null_window.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/platform.c.o", "vendor/GLFW/src/platform.c"],
-  "file": "vendor/GLFW/src/platform.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/vulkan.c.o", "vendor/GLFW/src/vulkan.c"],
-  "file": "vendor/GLFW/src/vulkan.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/window.c.o", "vendor/GLFW/src/window.c"],
-  "file": "vendor/GLFW/src/window.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/x11_init.c.o", "vendor/GLFW/src/x11_init.c"],
-  "file": "vendor/GLFW/src/x11_init.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/x11_monitor.c.o", "vendor/GLFW/src/x11_monitor.c"],
-  "file": "vendor/GLFW/src/x11_monitor.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/x11_window.c.o", "vendor/GLFW/src/x11_window.c"],
-  "file": "vendor/GLFW/src/x11_window.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/xkb_unicode.c.o", "vendor/GLFW/src/xkb_unicode.c"],
-  "file": "vendor/GLFW/src/xkb_unicode.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/posix_module.c.o", "vendor/GLFW/src/posix_module.c"],
-  "file": "vendor/GLFW/src/posix_module.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/posix_time.c.o", "vendor/GLFW/src/posix_time.c"],
-  "file": "vendor/GLFW/src/posix_time.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/posix_thread.c.o", "vendor/GLFW/src/posix_thread.c"],
-  "file": "vendor/GLFW/src/posix_thread.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/glx_context.c.o", "vendor/GLFW/src/glx_context.c"],
-  "file": "vendor/GLFW/src/glx_context.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/egl_context.c.o", "vendor/GLFW/src/egl_context.c"],
-  "file": "vendor/GLFW/src/egl_context.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/osmesa_context.c.o", "vendor/GLFW/src/osmesa_context.c"],
-  "file": "vendor/GLFW/src/osmesa_context.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/linux_joystick.c.o", "vendor/GLFW/src/linux_joystick.c"],
-  "file": "vendor/GLFW/src/linux_joystick.c"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
   "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "WalnutApp/build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Random.cpp.o", "Walnut/Source/Walnut/Random.cpp"],
   "file": "Walnut/Source/Walnut/Random.cpp"
 },
@@ -238,4 +128,114 @@
   "directory": "/home/vagrant/workspace/cxx/walnut",
   "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IGenesis/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-DNDEBUG", "-o", "WalnutApp/build/.objs/Genesis/linux/x86_64/release/Genesis/src/GameRenderer.cpp.o", "Genesis/src/GameRenderer.cpp"],
   "file": "Genesis/src/GameRenderer.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/context.c.o", "vendor/GLFW/src/context.c"],
+  "file": "vendor/GLFW/src/context.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/init.c.o", "vendor/GLFW/src/init.c"],
+  "file": "vendor/GLFW/src/init.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/input.c.o", "vendor/GLFW/src/input.c"],
+  "file": "vendor/GLFW/src/input.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/monitor.c.o", "vendor/GLFW/src/monitor.c"],
+  "file": "vendor/GLFW/src/monitor.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/null_init.c.o", "vendor/GLFW/src/null_init.c"],
+  "file": "vendor/GLFW/src/null_init.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/null_joystick.c.o", "vendor/GLFW/src/null_joystick.c"],
+  "file": "vendor/GLFW/src/null_joystick.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/null_monitor.c.o", "vendor/GLFW/src/null_monitor.c"],
+  "file": "vendor/GLFW/src/null_monitor.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/null_window.c.o", "vendor/GLFW/src/null_window.c"],
+  "file": "vendor/GLFW/src/null_window.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/platform.c.o", "vendor/GLFW/src/platform.c"],
+  "file": "vendor/GLFW/src/platform.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/vulkan.c.o", "vendor/GLFW/src/vulkan.c"],
+  "file": "vendor/GLFW/src/vulkan.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/window.c.o", "vendor/GLFW/src/window.c"],
+  "file": "vendor/GLFW/src/window.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/x11_init.c.o", "vendor/GLFW/src/x11_init.c"],
+  "file": "vendor/GLFW/src/x11_init.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/x11_monitor.c.o", "vendor/GLFW/src/x11_monitor.c"],
+  "file": "vendor/GLFW/src/x11_monitor.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/x11_window.c.o", "vendor/GLFW/src/x11_window.c"],
+  "file": "vendor/GLFW/src/x11_window.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/xkb_unicode.c.o", "vendor/GLFW/src/xkb_unicode.c"],
+  "file": "vendor/GLFW/src/xkb_unicode.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/posix_module.c.o", "vendor/GLFW/src/posix_module.c"],
+  "file": "vendor/GLFW/src/posix_module.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/posix_time.c.o", "vendor/GLFW/src/posix_time.c"],
+  "file": "vendor/GLFW/src/posix_time.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/posix_thread.c.o", "vendor/GLFW/src/posix_thread.c"],
+  "file": "vendor/GLFW/src/posix_thread.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/glx_context.c.o", "vendor/GLFW/src/glx_context.c"],
+  "file": "vendor/GLFW/src/glx_context.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/egl_context.c.o", "vendor/GLFW/src/egl_context.c"],
+  "file": "vendor/GLFW/src/egl_context.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/osmesa_context.c.o", "vendor/GLFW/src/osmesa_context.c"],
+  "file": "vendor/GLFW/src/osmesa_context.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "WalnutApp/build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/linux_joystick.c.o", "vendor/GLFW/src/linux_joystick.c"],
+  "file": "vendor/GLFW/src/linux_joystick.c"
 }]
