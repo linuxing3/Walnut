@@ -1,10 +1,11 @@
 [Window][DockSpaceWindow]
 Pos=0,0
-Size=945,1028
+Size=946,510
 Collapsed=0
 
 [Window][Debug##Default]
-Pos=60,60
+ViewportPos=1035,660
+ViewportId=0x9F5F46A1
 Size=400,400
 Collapsed=0
 
@@ -51,10 +52,11 @@ Collapsed=0
 DockId=0xCDC34B94,0
 
 [Window][Spark Chat]
-Pos=60,60
-Size=500,440
+ViewportPos=964,559
+ViewportId=0x61A5A5DA
+Size=945,510
 Collapsed=0
 
 [Docking][Data]
-DockSpace ID=0xCDC34B94 Window=0x41896AB8 Pos=970,99 Size=933,964 CentralNode=1 Selected=0x08F8367F
+DockSpace ID=0xCDC34B94 Window=0x41896AB8 Pos=17,617 Size=934,446 CentralNode=1 Selected=0x08F8367F
 

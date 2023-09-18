@@ -39,6 +39,5 @@ else
         if os.exists(imgui_ini_path) then
             os.cp(imgui_ini_path, imgui_ini_path .. '.' .. target:basename())
         end
-        os.cp('/home/vagrant/workspace/cxx/AIKit_Spark/SDK/libs/x64/libaikit.so', target:targetdir())
     end)
 end

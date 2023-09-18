@@ -1,5 +1,6 @@
 
 #include "Walnut/Application.h"
+#include "sparkDemo.h"
 
 #include "Walnut/Image.h"
 #include "Walnut/Timer.h"
@@ -8,20 +9,74 @@
 #include "imgui.h"
 #include "sparkDemo.h"
 
+#include <cstdio>
 #include <float.h>
 #include <glm/gtc/type_ptr.hpp>
 #include <iostream>
 #include <memory>
+#include <vector>
 
-int initSDK();
-int sendRequest(const std::string&);
-void unInit();
-
+using namespace std;
+using namespace AIKIT;
 using namespace Walnut;
+
+std::vector<string> g_Responses{};
+static char g_ResponseBuf[1024];
+
+struct UsrCtx {
+  string chatID;
+};
+
+void chatOnToken(AIChat_Handle* handle, const int& completionTokens,
+                 const int& promptTokens, const int& totalTokens) {
+  if (handle != nullptr) {
+    cout << "chatID:" << ((UsrCtx*)handle->usrContext)->chatID << ", ";
+  }
+  cout << "completionTokens:" << completionTokens
+       << " promptTokens:" << promptTokens << " totalTokens:" << totalTokens
+       << endl;
+  /* sendRequest(); */
+}
+
+void chatOnOutput(AIChat_Handle* handle, const char* role, const char* content,
+                  const int& index) {
+  if (handle != nullptr) {
+    /* cout << "chatID:" << ((UsrCtx*)handle->usrContext)->chatID << ", "; */
+  }
+  // FIXME:
+  string s(content);
+  g_Responses.push_back(s);
+  /* cout << "role:" << role << ", content: " << content << endl; */
+  cout << content << endl;
+}
+
+void chatOnError(AIChat_Handle* handle, const int& err, const char* errDesc) {
+  if (handle != nullptr) {
+    cout << "chatID:" << ((UsrCtx*)handle->usrContext)->chatID << ", ";
+  }
+  printf("chatOnError: err:%d,desc:%s\n", err, errDesc);
+  /* sendRequest(); */
+}
+
+void unInit() {
+  // 等待异步回调，这里sleep仅是demo最简便运行需要
+  // 真实场景，应用侧自行决定合适进行SDK逆初始化
+  sleep(500);
+
+  // 逆初始化SDK
+  AIKIT_UnInit();
+  return;
+}
 
 class SparkLayer : public Walnut::Layer {
  public:
-  void OnAttach() override { initSDK(); }
+  void OnAttach() override {
+
+    m_Questions.push_back(
+        "Hi, show me c++ code with imgui to create a window with a label");
+
+    initSDK();
+  }
   virtual void OnUpdate(float ts) override {}
 
   virtual void OnUIRender() override {
@@ -85,12 +140,14 @@ class SparkLayer : public Walnut::Layer {
       static int selected = 0;
       {
         ImGui::BeginChild("left pane", ImVec2(150, 0), true);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < m_Questions.size(); i++) {
           // FIXME: Good candidate to use ImGuiSelectableFlags_SelectOnNav
           char label[128];
-          sprintf(label, "MyObject %d", i);
-          if (ImGui::Selectable(label, selected == i))
+          sprintf(label, "%s", m_Questions[i]);
+          if (ImGui::Selectable(label, selected == i)) {
             selected = i;
+            m_CurrentQuestion = m_Questions[i];
+          }
         }
         ImGui::EndChild();
       }
@@ -103,20 +160,29 @@ class SparkLayer : public Walnut::Layer {
             "Chat Window",
             ImVec2(0, -ImGui::GetFrameHeightWithSpacing()));  // Leave room for
                                                               // 1 line below us
-        ImGui::Text("MyObject: %d", selected);
+        ImGui::Text("Questions %d", selected);
         ImGui::Separator();
         if (ImGui::BeginTabBar("##Tabs", ImGuiTabBarFlags_None)) {
           if (ImGui::BeginTabItem("Description")) {
             ImGui::TextWrapped("%s", m_CurrentQuestion.c_str());
+            ImGui::NewLine();
+
+            // FIXME: char to utf-8 code
+            for (auto line : g_Responses) {
+              ImGui::TextWrapped("%s", line.c_str());
+              /* sprintf(label, "%s", g_ResponseBuf[i]); */
+            }
             ImGui::EndTabItem();
           }
           if (ImGui::BeginTabItem("Details")) {
-            ImGui::Text("ID: 0123456789");
+            ImGui::Text("%s", m_CurrentQuestion.c_str());
             ImGui::EndTabItem();
           }
           ImGui::EndTabBar();
         }
+        ImGui::EndChild();
 
+        // Botton side
         bool reclaim_focus = false;
         ImGuiInputTextFlags input_text_flags =
             ImGuiInputTextFlags_EnterReturnsTrue |
@@ -133,12 +199,12 @@ class SparkLayer : public Walnut::Layer {
           reclaim_focus = true;
         }
 
-        ImGui::EndChild();
         if (ImGui::Button("Send")) {
           sendRequest(m_CurrentQuestion);
         }
         ImGui::SameLine();
         if (ImGui::Button("Save")) {
+          m_Questions.push_back(m_CurrentQuestion.c_str());
         }
         ImGui::EndGroup();
       }
@@ -273,13 +339,68 @@ class SparkLayer : public Walnut::Layer {
   void ShowAboutModal() { m_AboutModalOpen = true; }
 
  private:
+  struct UsrCtx {
+    string chatID;
+  };
+
+  string getUsrInput() {
+    cout << "请输入用户问题：" << endl;
+    string text;
+    cin >> text;
+    return text;
+  }
+
+  int sendRequest(const string& question) {
+    // 请求参数配置
+    ChatParam* config = ChatParam::builder();
+    config->uid("xxxid")
+        ->domain("generalv2")
+        ->auditing("default")
+        ->url("ws://spark-api.xf-yun.com/v2.1/chat");
+
+    // 设置chatID,使用static变量,防止回调时被销毁。
+    // 用于用户动态控制会话轮次
+    static UsrCtx usr = {"FistRound"};
+
+    // int ret = AIKIT_AsyncChat(config, getUsrInput().c_str(), &usr);
+    int ret = AIKIT_AsyncChat(config, question.c_str(), &usr);
+    if (ret != 0) {
+      printf("AIKIT_AsyncChat failed:%d\n", ret);
+      return ret;
+    }
+    return ret;
+  }
+
+  void initSDK() {
+    AIKIT_InitParam initParam{};
+    AIKIT_SetLogInfo(100, 0, nullptr);
+    initParam.appID = "de78a0ea";
+    initParam.apiKey = "7cf4e869f98ab280e5671feae40810e1";
+    initParam.apiSecret = "MTY2OGI3YWU2YTYwZmViMGZjMjU4NjQw";
+    int ret = AIKIT_Init(&initParam);
+    if (ret != 0) {
+      printf("AIKIT_Init failed:%d\n", ret);
+      return;
+    }
+
+    // 异步回调注册
+    AIKIT_ChatCallback({chatOnOutput, chatOnToken, chatOnError});
+    return;
+  }
+
+ private:
   uint32_t m_ViewportWidth = 0, m_ViewportHeight = 0;
 
   float m_LastRenderTime = 0.0F;
   bool m_AboutModalOpen = false;
   bool m_SparkChatOpen = false;
-  std::string m_CurrentQuestion = "";
 
+  // for left pane, combo list labels
+  std::vector<const char*> m_Questions{};
+  std::vector<const char*> m_Responses{};
+
+  // for right pane, questions and contents
+  std::string m_CurrentQuestion = "";
   char InputBuf[1024];
   ImVector<char*> Items;
   ImVector<const char*> Commands;
