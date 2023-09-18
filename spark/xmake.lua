@@ -1,22 +1,7 @@
--- build deps
-add_rules('mode.debug')
-add_rules('mode.release')
-
-if is_mode('debug') then
-    set_symbols('debug')
-    set_optimize('none')
-end
-
-if is_mode('release') then
-    set_symbols('hidden')
-    set_optimize('fastest')
-    set_strip('all')
-end
-
 includes('../Walnut')
 
 if is_os('windows') then
-    target('WalnutApp')
+    target('spark')
     set_kind('binary')
     set_languages('c++20')
     add_defines('WL_PLATFORM_WINDOWS', 'WL_DIST')
@@ -36,7 +21,7 @@ if is_os('windows') then
         os.cp('$(scriptdir)/imgui.ini', target:targetdir())
     end)
 else
-    target('WalnutApp')
+    target('spark')
     set_kind('binary')
     set_languages('c++20')
     add_files('src/**.cpp')
@@ -47,12 +32,13 @@ else
     add_includedirs('/home/vagrant/workspace/cxx/AIKit_Spark/SDK/include')
     -- use deps
     add_deps('Walnut')
+    add_linkdirs('/home/vagrant/workspace/cxx/AIKit_Spark/SDK/libs/x64')
+    add_links('aikit')
     after_build(function(target)
         local imgui_ini_path = path.join(target:targetdir(), 'imgui.ini')
         if os.exists(imgui_ini_path) then
             os.cp(imgui_ini_path, imgui_ini_path .. '.' .. target:basename())
         end
-        os.cp('$(scriptdir)/imgui.ini', target:targetdir())
         os.cp('/home/vagrant/workspace/cxx/AIKit_Spark/SDK/libs/x64/libaikit.so', target:targetdir())
     end)
 end

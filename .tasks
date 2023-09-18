@@ -1,0 +1,15 @@
+# vim: set fenc=utf-8 ft=dosini:
+
+[project-build]
+command=xmake -P spark
+cwd=$(VIM_ROOT)
+output=terminal
+save=1
+
+
+[project-run]
+command=xmake run -P spark
+cwd=$(VIM_ROOT)
+output=terminal
+save=1
+

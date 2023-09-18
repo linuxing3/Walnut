@@ -1,0 +1,60 @@
+[Window][DockSpaceWindow]
+Pos=0,0
+Size=945,1028
+Collapsed=0
+
+[Window][Debug##Default]
+Pos=60,60
+Size=400,400
+Collapsed=0
+
+[Window][Settings]
+Pos=6,58
+Size=933,447
+Collapsed=0
+DockId=0xCDC34B94,1
+
+[Window][Hello]
+Pos=6,58
+Size=933,447
+Collapsed=0
+DockId=0xCDC34B94,0
+
+[Window][Dear ImGui Demo]
+ViewportPos=964,559
+ViewportId=0xE927CF2F
+Size=945,510
+Collapsed=0
+
+[Window][Example: Console]
+ViewportPos=1440,559
+ViewportId=0x46B5E99C
+Size=469,510
+Collapsed=0
+
+[Window][Example: Long text display]
+ViewportPos=1440,559
+ViewportId=0x1E2A6821
+Size=469,510
+Collapsed=0
+
+[Window][Example: Documents]
+ViewportPos=964,818
+ViewportId=0x1FD64BEB
+Size=945,251
+Collapsed=0
+
+[Window][Example: Simple layout]
+Pos=6,58
+Size=933,964
+Collapsed=0
+DockId=0xCDC34B94,0
+
+[Window][Spark Chat]
+Pos=60,60
+Size=500,440
+Collapsed=0
+
+[Docking][Data]
+DockSpace ID=0xCDC34B94 Window=0x41896AB8 Pos=970,99 Size=933,964 CentralNode=1 Selected=0x08F8367F
+

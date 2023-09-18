@@ -1,6 +1,76 @@
 [
 {
   "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Random.cpp.o", "Walnut/Source/Walnut/Random.cpp"],
+  "file": "Walnut/Source/Walnut/Random.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Utils/StringUtils.cpp.o", "Walnut/Source/Walnut/Utils/StringUtils.cpp"],
+  "file": "Walnut/Source/Walnut/Utils/StringUtils.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Core/Log.cpp.o", "Walnut/Source/Walnut/Core/Log.cpp"],
+  "file": "Walnut/Source/Walnut/Core/Log.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Serialization/BufferStream.cpp.o", "Walnut/Source/Walnut/Serialization/BufferStream.cpp"],
+  "file": "Walnut/Source/Walnut/Serialization/BufferStream.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Serialization/FileStream.cpp.o", "Walnut/Source/Walnut/Serialization/FileStream.cpp"],
+  "file": "Walnut/Source/Walnut/Serialization/FileStream.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Serialization/StreamReader.cpp.o", "Walnut/Source/Walnut/Serialization/StreamReader.cpp"],
+  "file": "Walnut/Source/Walnut/Serialization/StreamReader.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Serialization/StreamWriter.cpp.o", "Walnut/Source/Walnut/Serialization/StreamWriter.cpp"],
+  "file": "Walnut/Source/Walnut/Serialization/StreamWriter.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/ImGui/ImGuiBuild.cpp.o", "Walnut/Platform/GUI/Walnut/ImGui/ImGuiBuild.cpp"],
+  "file": "Walnut/Platform/GUI/Walnut/ImGui/ImGuiBuild.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/ImGui/ImGuiTheme.cpp.o", "Walnut/Platform/GUI/Walnut/ImGui/ImGuiTheme.cpp"],
+  "file": "Walnut/Platform/GUI/Walnut/ImGui/ImGuiTheme.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/Image.cpp.o", "Walnut/Platform/GUI/Walnut/Image.cpp"],
+  "file": "Walnut/Platform/GUI/Walnut/Image.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/UI/Console.cpp.o", "Walnut/Platform/GUI/Walnut/UI/Console.cpp"],
+  "file": "Walnut/Platform/GUI/Walnut/UI/Console.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/UI/UI.cpp.o", "Walnut/Platform/GUI/Walnut/UI/UI.cpp"],
+  "file": "Walnut/Platform/GUI/Walnut/UI/UI.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/Input/Input.cpp.o", "Walnut/Platform/GUI/Walnut/Input/Input.cpp"],
+  "file": "Walnut/Platform/GUI/Walnut/Input/Input.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/ApplicationGUI.cpp.o", "Walnut/Platform/GUI/Walnut/ApplicationGUI.cpp"],
+  "file": "Walnut/Platform/GUI/Walnut/ApplicationGUI.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
   "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/vendor/imgui/imgui.cpp.o", "vendor/imgui/imgui.cpp"],
   "file": "vendor/imgui/imgui.cpp"
 },
@@ -136,106 +206,11 @@
 },
 {
   "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IGenesis/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-DNDEBUG", "-o", "build/.objs/Genesis/linux/x86_64/release/Genesis/src/SpriteSheet.cpp.o", "Genesis/src/SpriteSheet.cpp"],
-  "file": "Genesis/src/SpriteSheet.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ispark/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-I/home/vagrant/workspace/cxx/AIKit_Spark/SDK/include", "-o", "build/.objs/spark/linux/x86_64/release/spark/src/sparkDemo.cpp.o", "spark/src/sparkDemo.cpp"],
+  "file": "spark/src/sparkDemo.cpp"
 },
 {
   "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IGenesis/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-DNDEBUG", "-o", "build/.objs/Genesis/linux/x86_64/release/Genesis/src/Utils.cpp.o", "Genesis/src/Utils.cpp"],
-  "file": "Genesis/src/Utils.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IGenesis/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-DNDEBUG", "-o", "build/.objs/Genesis/linux/x86_64/release/Genesis/src/GameLevel.cpp.o", "Genesis/src/GameLevel.cpp"],
-  "file": "Genesis/src/GameLevel.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IGenesis/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-DNDEBUG", "-o", "build/.objs/Genesis/linux/x86_64/release/Genesis/src/Camera.cpp.o", "Genesis/src/Camera.cpp"],
-  "file": "Genesis/src/Camera.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IGenesis/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-DNDEBUG", "-o", "build/.objs/Genesis/linux/x86_64/release/Genesis/src/GameObject.cpp.o", "Genesis/src/GameObject.cpp"],
-  "file": "Genesis/src/GameObject.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IGenesis/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-DNDEBUG", "-o", "build/.objs/Genesis/linux/x86_64/release/Genesis/src/Genesis.cpp.o", "Genesis/src/Genesis.cpp"],
-  "file": "Genesis/src/Genesis.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IGenesis/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-DNDEBUG", "-o", "build/.objs/Genesis/linux/x86_64/release/Genesis/src/GameRenderer.cpp.o", "Genesis/src/GameRenderer.cpp"],
-  "file": "Genesis/src/GameRenderer.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Random.cpp.o", "Walnut/Source/Walnut/Random.cpp"],
-  "file": "Walnut/Source/Walnut/Random.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Utils/StringUtils.cpp.o", "Walnut/Source/Walnut/Utils/StringUtils.cpp"],
-  "file": "Walnut/Source/Walnut/Utils/StringUtils.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Core/Log.cpp.o", "Walnut/Source/Walnut/Core/Log.cpp"],
-  "file": "Walnut/Source/Walnut/Core/Log.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Serialization/BufferStream.cpp.o", "Walnut/Source/Walnut/Serialization/BufferStream.cpp"],
-  "file": "Walnut/Source/Walnut/Serialization/BufferStream.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Serialization/FileStream.cpp.o", "Walnut/Source/Walnut/Serialization/FileStream.cpp"],
-  "file": "Walnut/Source/Walnut/Serialization/FileStream.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Serialization/StreamReader.cpp.o", "Walnut/Source/Walnut/Serialization/StreamReader.cpp"],
-  "file": "Walnut/Source/Walnut/Serialization/StreamReader.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Source/Walnut/Serialization/StreamWriter.cpp.o", "Walnut/Source/Walnut/Serialization/StreamWriter.cpp"],
-  "file": "Walnut/Source/Walnut/Serialization/StreamWriter.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/ImGui/ImGuiBuild.cpp.o", "Walnut/Platform/GUI/Walnut/ImGui/ImGuiBuild.cpp"],
-  "file": "Walnut/Platform/GUI/Walnut/ImGui/ImGuiBuild.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/ImGui/ImGuiTheme.cpp.o", "Walnut/Platform/GUI/Walnut/ImGui/ImGuiTheme.cpp"],
-  "file": "Walnut/Platform/GUI/Walnut/ImGui/ImGuiTheme.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/Image.cpp.o", "Walnut/Platform/GUI/Walnut/Image.cpp"],
-  "file": "Walnut/Platform/GUI/Walnut/Image.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/UI/Console.cpp.o", "Walnut/Platform/GUI/Walnut/UI/Console.cpp"],
-  "file": "Walnut/Platform/GUI/Walnut/UI/Console.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/UI/UI.cpp.o", "Walnut/Platform/GUI/Walnut/UI/UI.cpp"],
-  "file": "Walnut/Platform/GUI/Walnut/UI/UI.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/Input/Input.cpp.o", "Walnut/Platform/GUI/Walnut/Input/Input.cpp"],
-  "file": "Walnut/Platform/GUI/Walnut/Input/Input.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/ApplicationGUI.cpp.o", "Walnut/Platform/GUI/Walnut/ApplicationGUI.cpp"],
-  "file": "Walnut/Platform/GUI/Walnut/ApplicationGUI.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ispark/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-I/home/vagrant/workspace/cxx/AIKit_Spark/SDK/include", "-o", "build/.objs/spark/linux/x86_64/release/spark/src/main.cpp.o", "spark/src/main.cpp"],
+  "file": "spark/src/main.cpp"
 }]
