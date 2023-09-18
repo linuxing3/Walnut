@@ -193,8 +193,10 @@ class SparkLayer : public Walnut::Layer {
                              &SparkLayer::TextEditCallbackStub, (void*)this)) {
           char* s = InputBuf;
           Strtrim(s);
-          if (s)
+          if (s) {
             m_CurrentQuestion = s;
+            sendRequest(m_CurrentQuestion);
+          }
           strcpy(s, "");
           reclaim_focus = true;
         }
