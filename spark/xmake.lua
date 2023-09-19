@@ -27,10 +27,22 @@ else
     add_files('src/**.cpp')
     set_targetdir('.')
     add_includedirs('../Walnut/Source', '../Walnut/Platform/GUI')
-    add_includedirs('src', '../vendor/imgui', '../vendor/GLFW/include', '../vendor/glm', '../vendor/stb_image')
+    add_includedirs(
+        'src',
+        '../vendor/imgui',
+        '../vendor/GLFW/include',
+        '../vendor/glm',
+        '../vendor/stb_image',
+        '../vendor/spdlog/include'
+    )
     add_includedirs(path.join(os.getenv('VULKAN_SDK'), 'include'))
     add_includedirs('/home/vagrant/workspace/cxx/AIKit_Spark/SDK/include')
+
+    add_includedirs('../Walnut-Modules/Walnut-Networking/vendor/GameNetworkingSockets/include/')
+    add_includedirs('../Walnut-Modules/Walnut-Networking/Source')
+    add_includedirs('../WalnutChat/App-Common/Source')
     -- use deps
+    add_packages('protoc', 'protobuf-cpp')
     add_deps('Walnut')
     add_linkdirs('/home/vagrant/workspace/cxx/AIKit_Spark/SDK/libs/x64')
     add_links('aikit')

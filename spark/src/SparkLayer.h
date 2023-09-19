@@ -44,8 +44,8 @@ void chatOnOutput(AIChat_Handle* handle, const char* role, const char* content,
     /* cout << "chatID:" << ((UsrCtx*)handle->usrContext)->chatID << ", "; */
   }
   // FIXME:
-  string s(content);
-  g_Responses.push_back(s);
+  string contentStr(content);
+  g_Responses.push_back(contentStr);
   /* cout << "role:" << role << ", content: " << content << endl; */
   cout << content << endl;
 }
@@ -126,90 +126,81 @@ class SparkLayer : public Walnut::Layer {
   // Demonstrate create a window with multiple child windows.
   void UI_DrawSparkChat(bool* p_open) {
     ImGui::SetNextWindowSize(ImVec2(500, 440), ImGuiCond_FirstUseEver);
-    if (ImGui::Begin("Spark Chat", p_open, ImGuiWindowFlags_MenuBar)) {
-      if (ImGui::BeginMenuBar()) {
-        if (ImGui::BeginMenu("File")) {
-          if (ImGui::MenuItem("Close"))
-            *p_open = false;
-          ImGui::EndMenu();
+    // Left
+    static int selected = 0;
+    ImGui::Begin("Spark Chat");
+    {
+      ImGui::BeginChild("left pane", ImVec2(150, 0), true);
+      for (int i = 0; i < m_Questions.size(); i++) {
+        // FIXME: Good candidate to use ImGuiSelectableFlags_SelectOnNav
+        char label[128];
+        sprintf(label, "%s", m_Questions[i]);
+        if (ImGui::Selectable(label, selected == i)) {
+          selected = i;
+          string selectedQuetion(m_Questions[i]);
+          m_CurrentQuestion = selectedQuetion;
         }
-        ImGui::EndMenuBar();
       }
+      ImGui::EndChild();
+    }
+    ImGui::SameLine();
 
-      // Left
-      static int selected = 0;
-      {
-        ImGui::BeginChild("left pane", ImVec2(150, 0), true);
-        for (int i = 0; i < m_Questions.size(); i++) {
-          // FIXME: Good candidate to use ImGuiSelectableFlags_SelectOnNav
-          char label[128];
-          sprintf(label, "%s", m_Questions[i]);
-          if (ImGui::Selectable(label, selected == i)) {
-            selected = i;
-            m_CurrentQuestion = m_Questions[i];
+    // Right
+    {
+      ImGui::BeginGroup();
+      ImGui::BeginChild(
+          "Chat Window",
+          ImVec2(0, -ImGui::GetFrameHeightWithSpacing()));  // Leave room for
+                                                            // 1 line below us
+      ImGui::Text("Questions %d", selected + 1);
+      ImGui::Separator();
+      if (ImGui::BeginTabBar("##Tabs", ImGuiTabBarFlags_None)) {
+        if (ImGui::BeginTabItem("Description")) {
+          ImGui::TextWrapped("%s", m_CurrentQuestion.c_str());
+          ImGui::NewLine();
+
+          for (auto line : g_Responses) {
+            ImGui::TextWrapped("%s", line.c_str());
           }
+
+          ImGui::NewLine();
+          ImGui::EndTabItem();
         }
-        ImGui::EndChild();
+        /* if (ImGui::BeginTabItem("Details")) { */
+        /*   ImGui::Text("%s", m_CurrentQuestion.c_str()); */
+        /*   ImGui::EndTabItem(); */
+        /* } */
+        ImGui::EndTabBar();
       }
-      ImGui::SameLine();
+      ImGui::EndChild();
 
-      // Right
-      {
-        ImGui::BeginGroup();
-        ImGui::BeginChild(
-            "Chat Window",
-            ImVec2(0, -ImGui::GetFrameHeightWithSpacing()));  // Leave room for
-                                                              // 1 line below us
-        ImGui::Text("Questions %d", selected);
-        ImGui::Separator();
-        if (ImGui::BeginTabBar("##Tabs", ImGuiTabBarFlags_None)) {
-          if (ImGui::BeginTabItem("Description")) {
-            ImGui::TextWrapped("%s", m_CurrentQuestion.c_str());
-            ImGui::NewLine();
-
-            // FIXME: char to utf-8 code
-            for (auto line : g_Responses) {
-              ImGui::TextWrapped("%s", line.c_str());
-              /* sprintf(label, "%s", g_ResponseBuf[i]); */
-            }
-            ImGui::EndTabItem();
-          }
-          if (ImGui::BeginTabItem("Details")) {
-            ImGui::Text("%s", m_CurrentQuestion.c_str());
-            ImGui::EndTabItem();
-          }
-          ImGui::EndTabBar();
-        }
-        ImGui::EndChild();
-
-        // Botton side
-        bool reclaim_focus = false;
-        ImGuiInputTextFlags input_text_flags =
-            ImGuiInputTextFlags_EnterReturnsTrue |
-            ImGuiInputTextFlags_CallbackCompletion |
-            ImGuiInputTextFlags_CallbackHistory;
-        if (ImGui::InputText("Input", InputBuf, IM_ARRAYSIZE(InputBuf),
-                             input_text_flags,
-                             &SparkLayer::TextEditCallbackStub, (void*)this)) {
-          char* s = InputBuf;
-          Strtrim(s);
-          if (s) {
-            m_CurrentQuestion = s;
-            sendRequest(m_CurrentQuestion);
-          }
-          strcpy(s, "");
-          reclaim_focus = true;
-        }
-
-        if (ImGui::Button("Send")) {
+      // Botton side
+      bool reclaim_focus = false;
+      ImGuiInputTextFlags input_text_flags =
+          ImGuiInputTextFlags_EnterReturnsTrue |
+          ImGuiInputTextFlags_CallbackCompletion |
+          ImGuiInputTextFlags_CallbackHistory;
+      if (ImGui::InputText("Input", InputBuf, IM_ARRAYSIZE(InputBuf),
+                           input_text_flags, &SparkLayer::TextEditCallbackStub,
+                           (void*)this)) {
+        char* s = InputBuf;
+        Strtrim(s);
+        if (s) {
+          m_CurrentQuestion = s;
           sendRequest(m_CurrentQuestion);
         }
-        ImGui::SameLine();
-        if (ImGui::Button("Save")) {
-          m_Questions.push_back(m_CurrentQuestion.c_str());
-        }
-        ImGui::EndGroup();
+        strcpy(s, "");
+        reclaim_focus = true;
       }
+
+      if (ImGui::Button("Send")) {
+        sendRequest(m_CurrentQuestion);
+      }
+      ImGui::SameLine();
+      if (ImGui::Button("Save")) {
+        m_Questions.push_back(m_CurrentQuestion.c_str());
+      }
+      ImGui::EndGroup();
     }
     ImGui::End();
   }
@@ -374,12 +365,11 @@ class SparkLayer : public Walnut::Layer {
   }
 
   void initSDK() {
-    AIKIT_InitParam initParam{};
     AIKIT_SetLogInfo(100, 0, nullptr);
-    initParam.appID = "de78a0ea";
-    initParam.apiKey = "7cf4e869f98ab280e5671feae40810e1";
-    initParam.apiSecret = "MTY2OGI3YWU2YTYwZmViMGZjMjU4NjQw";
-    int ret = AIKIT_Init(&initParam);
+    m_SparkInitParam.appID = "de78a0ea";
+    m_SparkInitParam.apiKey = "7cf4e869f98ab280e5671feae40810e1";
+    m_SparkInitParam.apiSecret = "MTY2OGI3YWU2YTYwZmViMGZjMjU4NjQw";
+    int ret = AIKIT_Init(&m_SparkInitParam);
     if (ret != 0) {
       printf("AIKIT_Init failed:%d\n", ret);
       return;
@@ -391,6 +381,7 @@ class SparkLayer : public Walnut::Layer {
   }
 
  private:
+  AIKIT_InitParam m_SparkInitParam{};
   uint32_t m_ViewportWidth = 0, m_ViewportHeight = 0;
 
   float m_LastRenderTime = 0.0F;

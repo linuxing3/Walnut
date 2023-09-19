@@ -2,8 +2,8 @@
 
 #include "Walnut/Core/Buffer.h"
 
-#include <steam/steamnetworkingsockets.h>
-#include <steam/isteamnetworkingutils.h>
+#include "steam/steamnetworkingsockets.h"
+#include "steam/isteamnetworkingutils.h"
 #ifndef STEAMNETWORKINGSOCKETS_OPENSOURCE
 #include <steam/steam_api.h>
 #endif

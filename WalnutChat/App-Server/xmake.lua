@@ -1,0 +1,41 @@
+includes('../../Walnut')
+includes('../../Walnut-Modules/Walnut-Networking')
+includes('../App-Common')
+includes('../../vendor/yaml-cpp')
+
+add_requires('protoc', 'protobuf-cpp')
+
+if is_os('windows') then
+    target('App-Server')
+    set_kind('binary')
+    set_languages('c++20')
+    add_defines('WL_PLATFORM_WINDOWS', 'WL_DIST')
+    add_files('Source/**.cpp')
+    set_targetdir('.')
+    add_cxxflags('/EHsc', '/Zc:preprocessor', '/Zc:__cplusplus')
+    add_includedirs('../Walnut/Source', '../Walnut/Platform/GUI')
+    add_includedirs('Source', '../vendor/imgui', '../vendor/GLFW/include', '../vendor/glm', '../vendor/stb_image')
+    add_includedirs(path.join(os.getenv('VULKAN_SDK'), 'Include'))
+    -- use deps
+    add_deps('Walnut')
+    add_deps('Walnut-Networking')
+else
+    target('App-Server')
+    set_kind('binary')
+    set_languages('c++20')
+    add_files('Source/**.cpp')
+    set_targetdir('.')
+    add_includedirs('../../Walnut/Source', '../../Walnut/Platform/GUI')
+    add_includedirs('../../Walnut-Modules/Walnut-Networking/Source', '../../Walnut-Modules/Walnut-Networking/vendor/GameNetworkingSockets/include')
+    add_includedirs('../App-Common/Source')
+    add_includedirs('Source', '../../vendor/imgui', '../../vendor/GLFW/include', '../../vendor/glm', '../../vendor/stb_image', '../../vendor/spdlog/include')
+    add_includedirs(path.join(os.getenv('VULKAN_SDK'), 'include'))
+    add_includedirs('/home/vagrant/workspace/cxx/AIKit_Spark/SDK/include')
+    -- use deps
+    add_deps('Walnut')
+    add_deps('Walnut-Networking')
+    add_deps('App-Common')
+    add_deps('yaml-cpp')
+    add_links('GameNetworkingSockets')
+    add_packages('protoc', 'protobuf-cpp')
+end
