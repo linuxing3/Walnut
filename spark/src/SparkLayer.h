@@ -10,6 +10,7 @@
 #include "sparkDemo.h"
 
 #include <cstdio>
+#include <cstring>
 #include <float.h>
 #include <glm/gtc/type_ptr.hpp>
 #include <iostream>
@@ -72,11 +73,20 @@ class SparkLayer : public Walnut::Layer {
  public:
   void OnAttach() override {
 
-    m_Questions.push_back(
-        "Hi, show me c++ code with imgui to create a window with a label");
+    const char* defaultQuestion =
+        "Show me c++ code to create a window with a label, with imgui and "
+        "glfw.";
+
+    m_Questions.push_back(defaultQuestion);
+
+    m_ChatList.push_back(defaultQuestion);
+
+    m_CurrentQuestion =
+        "Hi, I'm your AI Assistant Spark, type your question to ask me ...";
 
     initSDK();
   }
+
   virtual void OnUpdate(float ts) override {}
 
   virtual void OnUIRender() override {
@@ -123,12 +133,14 @@ class SparkLayer : public Walnut::Layer {
       str_end--;
     *str_end = 0;
   }
+
   // Demonstrate create a window with multiple child windows.
   void UI_DrawSparkChat(bool* p_open) {
     ImGui::SetNextWindowSize(ImVec2(500, 440), ImGuiCond_FirstUseEver);
-    // Left
     static int selected = 0;
     ImGui::Begin("Spark Chat");
+
+    // Left Pane
     {
       ImGui::BeginChild("left pane", ImVec2(150, 0), true);
       for (int i = 0; i < m_Questions.size(); i++) {
@@ -137,15 +149,15 @@ class SparkLayer : public Walnut::Layer {
         sprintf(label, "%s", m_Questions[i]);
         if (ImGui::Selectable(label, selected == i)) {
           selected = i;
-          string selectedQuetion(m_Questions[i]);
-          m_CurrentQuestion = selectedQuetion;
+          char* s = InputBuf;
+          strcpy(s, m_Questions[i]);
         }
       }
       ImGui::EndChild();
     }
     ImGui::SameLine();
 
-    // Right
+    // Right Pane
     {
       ImGui::BeginGroup();
       ImGui::BeginChild(
@@ -155,50 +167,77 @@ class SparkLayer : public Walnut::Layer {
       ImGui::Text("Questions %d", selected + 1);
       ImGui::Separator();
       if (ImGui::BeginTabBar("##Tabs", ImGuiTabBarFlags_None)) {
-        if (ImGui::BeginTabItem("Description")) {
-          ImGui::TextWrapped("%s", m_CurrentQuestion.c_str());
-          ImGui::NewLine();
 
-          for (auto line : g_Responses) {
-            ImGui::TextWrapped("%s", line.c_str());
+        for (uint32_t chatTabId = 0; chatTabId < m_ChatList.size();
+             chatTabId++) {
+          char label[128];
+          sprintf(label, "Chat %u", chatTabId + 1);
+          if (ImGui::BeginTabItem(label)) {
+            ImGui::TextColored({0.0, 0.0, 1.0, 1.0}, "Question:\n%s",
+                               m_CurrentQuestion.c_str());
+            ImGui::NewLine();
+
+            ImGui::Separator();
+
+            ImGui::TextColored({1.0, 1.0, 0.0, 1.0}, "Answer:\n");
+
+            uint32_t lineNumber = 1;
+            for (auto line : g_Responses) {
+              /* ImGui::TextColored({1.0, 1.0, 0.0, 1.0}, "%u   %s", lineNumber,
+               */
+              /*                    line.c_str()); */
+              ImGui::TextColored({1.0, 1.0, 0.0, 1.0}, "%s", line.c_str());
+              lineNumber++;
+            }
+
+            ImGui::Separator();
+            ImGui::NewLine();
+
+            ImGui::EndTabItem();
           }
-
-          ImGui::NewLine();
-          ImGui::EndTabItem();
         }
-        /* if (ImGui::BeginTabItem("Details")) { */
-        /*   ImGui::Text("%s", m_CurrentQuestion.c_str()); */
-        /*   ImGui::EndTabItem(); */
-        /* } */
         ImGui::EndTabBar();
       }
       ImGui::EndChild();
 
-      // Botton side
-      bool reclaim_focus = false;
-      ImGuiInputTextFlags input_text_flags =
-          ImGuiInputTextFlags_EnterReturnsTrue |
-          ImGuiInputTextFlags_CallbackCompletion |
-          ImGuiInputTextFlags_CallbackHistory;
-      if (ImGui::InputText("Input", InputBuf, IM_ARRAYSIZE(InputBuf),
-                           input_text_flags, &SparkLayer::TextEditCallbackStub,
-                           (void*)this)) {
-        char* s = InputBuf;
-        Strtrim(s);
-        if (s) {
-          m_CurrentQuestion = s;
-          sendRequest(m_CurrentQuestion);
+      // Text Input
+      {
+
+        bool reclaim_focus = false;
+        ImGuiInputTextFlags input_text_flags =
+            ImGuiInputTextFlags_EnterReturnsTrue |
+            ImGuiInputTextFlags_CallbackCompletion |
+            ImGuiInputTextFlags_CallbackHistory;
+        if (ImGui::InputText("Enter to chat", InputBuf, IM_ARRAYSIZE(InputBuf),
+                             input_text_flags,
+                             &SparkLayer::TextEditCallbackStub, (void*)this)) {
+          char* s = InputBuf;
+          Strtrim(s);
+          if (s) {
+            m_CurrentQuestion = s;
+            sendRequest(m_CurrentQuestion);
+          }
+          strcpy(s, "");
+          reclaim_focus = true;
         }
-        strcpy(s, "");
-        reclaim_focus = true;
       }
 
-      if (ImGui::Button("Send")) {
-        sendRequest(m_CurrentQuestion);
-      }
-      ImGui::SameLine();
-      if (ImGui::Button("Save")) {
-        m_Questions.push_back(m_CurrentQuestion.c_str());
+      // Button Group
+      {
+
+        if (ImGui::Button("Save History")) {
+          m_Questions.push_back(m_CurrentQuestion.c_str());
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("New Chat")) {
+          m_ChatList.push_back(m_CurrentQuestion.c_str());
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Clear History")) {
+          char* s = InputBuf;
+          strcpy(s, "");
+          g_Responses.clear();
+        }
       }
       ImGui::EndGroup();
     }
@@ -391,6 +430,8 @@ class SparkLayer : public Walnut::Layer {
   // for left pane, combo list labels
   std::vector<const char*> m_Questions{};
   std::vector<const char*> m_Responses{};
+
+  std::vector<const char*> m_ChatList{};
 
   // for right pane, questions and contents
   std::string m_CurrentQuestion = "";
