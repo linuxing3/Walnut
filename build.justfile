@@ -37,6 +37,18 @@ raytracing: raytracing-build
   cd {{workspace_dir}}
   xmake r -P Raytracing
 
+sparkai-build:
+  #!/usr/bin/env bash
+  set -euxo pipefail
+  cd {{workspace_dir}}
+  xmake -P spark
+
+sparkai-run:
+  #!/usr/bin/env bash
+  set -euxo pipefail
+  cd {{workspace_dir}}
+  xmake r -P spark
+
 walnutapp-build:
   #!/usr/bin/env bash
   set -euxo pipefail
