@@ -27,10 +27,12 @@ static uint32_t ConvertToRGBA(const glm::vec4 &color) {
 }  // namespace Utils
 
 GameRenderer::GameRenderer(uint32_t width, uint32_t height) {
+  // NOTE: Prepare image data
   m_ImageData = new uint32_t[width * height];
   for (uint32_t i = 0; i < width * height; i++) {
     m_ImageData[i] = 0xffff00ff;
   }
+  // NOTE: Prepare Imgui Image object
   if (m_FinalImage) {
     if (m_FinalImage->GetWidth() == width &&
         m_FinalImage->GetHeight() == height)
@@ -57,6 +59,7 @@ void GameRenderer::OnResize(uint32_t width, uint32_t height) {
                                                    Walnut::ImageFormat::RGBA);
   }
 
+  // NOTE: Each time rezize, image data array must be rebuilt
   delete[] m_ImageData;
   m_ImageData = new uint32_t[width * height];
 
@@ -67,10 +70,43 @@ void GameRenderer::OnResize(uint32_t width, uint32_t height) {
 void GameRenderer::RenderSprite(uint32_t cx, uint32_t cy) {
   // Spritsheet
   auto ss = Genesis::GameLayer::Get()->GetPlayerObject();
+  /*
+   *   Spritsheet is a grid with each subimage in cell
+   *                     cy
+   *  cx -----------------
+   *    |   |   |   |   |
+   *     -----------------
+   *    |   |   |   |   |
+   *     -----------------
+   *    |   |ss |   |   |
+   *     -----------------
+   *    |   |   |   |   |
+   *    -----------------
+   *  (0, 0)
+   */
   uint32_t xp = cx * spriteSize, yp = cy * spriteSize;
 
   for (uint32_t y = 0; y < spriteSize; y++)
     for (uint32_t x = 0; x < spriteSize; x++) {
+      /*
+       *  Subimage grid data is like matrix
+       *                    y
+       *  x -----------------
+       *    | 0 |   |   |   |
+       *    -----------------
+       *    |   |   |   |   |
+       *    -----------------
+       *    |   | 9 |   |   |
+       *    -----------------
+       *    |   |   |   |   |
+       *    -----------------
+       *  (xp, yp)
+       *
+       *    Flattend to one dimension array, index_within_image
+       *    ----------------- -------------------------------
+       *    | 0 |   |   |   |   |   |   |   |  |  9 |   |   |
+       *    ----------------- -------------------------------
+       */
       uint32_t index_within_image = (xp + x) + (yp + y) * ss->GetWidth();
       uint32_t color = ss->GetPixels()[index_within_image];
       if (color == 0xff000000 || color == 0xffff00ff)

@@ -2,17 +2,6 @@
 add_rules('mode.debug')
 add_rules('mode.release')
 
-if is_mode('debug') then
-    set_symbols('debug')
-    set_optimize('none')
-end
-
-if is_mode('release') then
-    set_symbols('hidden')
-    set_optimize('fastest')
-    set_strip('all')
-end
-
 includes('../Walnut')
 
 if is_os('windows') then
