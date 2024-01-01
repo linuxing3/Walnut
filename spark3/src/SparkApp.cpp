@@ -7,6 +7,9 @@
 using namespace SparkChain;
 using namespace std;
 
+// singleton
+static SparkApp *s_SparkApp;
+
 static LLMConfig *s_LLMConfig;
 static Memory *s_WindowMemory;
 static LLM *s_Asyncllm;
@@ -73,7 +76,7 @@ void SparkApp::onLLMResult(LLMResult *result, void *usrContext) {
    */
   s_FinalResult += string(result->getContent());
   // TODO: need to return
-  std::cout << s_FinalResult << std::endl;
+  /* std::cout << s_FinalResult << std::endl; */
   if (status == 2) {
     printf(GREEN "tokens:%d + %d = %d\n" RESET, result->getCompletionTokens(),
            result->getPromptTokens(), result->getTotalTokens());
@@ -97,3 +100,7 @@ LLMConfig *SparkApp::GetLLMConfig() { return s_LLMConfig; }
 LLM *SparkApp::GetLLM() { return s_Asyncllm; }
 
 string SparkApp::GetFinalResult() { return s_FinalResult; }
+
+SparkApp *SparkApp::GetApp() { return s_SparkApp; };
+
+SparkApp::SparkApp() { s_SparkApp = this; };

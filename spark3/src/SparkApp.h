@@ -13,10 +13,16 @@
 
 using namespace SparkChain;
 using namespace std;
+
+// class predefinition
+class SparkApp;
+
+// class definition
 class SparkApp : public LLMCallbacks {
+ public:
+  SparkApp();
   ~SparkApp();
 
- public:
   static int initSDK() {
     // 全局初始化
     SparkChainConfig *config = SparkChainConfig::builder();
@@ -33,6 +39,8 @@ class SparkApp : public LLMCallbacks {
     // 全局逆初始化
     SparkChain::unInit();
   }
+
+  static SparkApp *GetApp();
 
   static string GetFinalResult();
 

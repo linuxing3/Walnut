@@ -343,6 +343,7 @@ class SparkLayer : public Walnut::Layer {
   }
 
   bool getResponses() {
+    /* string result = SparkApp::GetApp()->GetFinalResult(); */
     string result = SparkApp::GetFinalResult();
     if (result.length() > 0) {
       g_Responses.clear();
