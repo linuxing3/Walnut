@@ -1,20 +1,35 @@
-#include "SparkApp.h"
 #include <iostream>
 #include <unistd.h>
 
-int main(int argc, char const *argv[]) {
-  auto *app = new SparkApp();
-  // 全局初始化
-  int ret = SparkApp::initSDK();
-  if (ret != 0) {
-    cout << "initSDK failed:" << ret << endl;
-    return -1;
-  }
+#include "Walnut/Application.h"
+#include "Walnut/EntryPoint.h"
 
-  while (true) {
-    app->askQuestions();
-  }
+#include "SparkLayer.h"
 
-  // 退出
-  SparkApp::uninitSDK();
+Walnut::Application* Walnut::CreateApplication(int argc, char** argv) {
+  Walnut::ApplicationSpecification spec;
+  spec.Name = "Walnut Example";
+  spec.CustomTitlebar = true;
+
+  Walnut::Application* app = new Walnut::Application(spec);
+  // NOTE:
+  std::shared_ptr<SparkLayer> sparkLayer = std::make_shared<SparkLayer>();
+  app->PushLayer(sparkLayer);
+
+  app->SetMenubarCallback([app, sparkLayer]() {
+    if (ImGui::BeginMenu("File")) {
+      if (ImGui::MenuItem("Exit")) {
+        app->Close();
+      }
+      ImGui::EndMenu();
+    }
+
+    if (ImGui::BeginMenu("Help")) {
+      if (ImGui::MenuItem("About")) {
+        sparkLayer->ShowAboutModal();
+      }
+      ImGui::EndMenu();
+    }
+  });
+  return app;
 }

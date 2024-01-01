@@ -34,10 +34,14 @@ class SparkApp : public LLMCallbacks {
     SparkChain::unInit();
   }
 
+  static string GetFinalResult();
+
  public:
   void askQuestions();
   LLMConfig *GetLLMConfig();
   LLM *GetLLM();
+
+  void SetQuestion(const string &q) { m_Question = q; };
 
  private:
   void onLLMResult(LLMResult *result, void *usrContext);
@@ -46,5 +50,6 @@ class SparkApp : public LLMCallbacks {
 
  private:
   char *m_UserContext = "myContext";
+  string m_Question = "";
   string m_FinalResult = "";
 };

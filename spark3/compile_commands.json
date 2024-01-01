@@ -1,31 +1,6 @@
 [
 {
   "directory": "/home/vagrant/workspace/cxx/walnut/spark3",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I../vendor/imgui", "-I../vendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/__/vendor/imgui/imgui.cpp.o", "../vendor/imgui/imgui.cpp"],
-  "file": "../vendor/imgui/imgui.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut/spark3",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I../vendor/imgui", "-I../vendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/__/vendor/imgui/imgui_draw.cpp.o", "../vendor/imgui/imgui_draw.cpp"],
-  "file": "../vendor/imgui/imgui_draw.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut/spark3",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I../vendor/imgui", "-I../vendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/__/vendor/imgui/imgui_tables.cpp.o", "../vendor/imgui/imgui_tables.cpp"],
-  "file": "../vendor/imgui/imgui_tables.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut/spark3",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I../vendor/imgui", "-I../vendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/__/vendor/imgui/imgui_widgets.cpp.o", "../vendor/imgui/imgui_widgets.cpp"],
-  "file": "../vendor/imgui/imgui_widgets.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut/spark3",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I../vendor/imgui", "-I../vendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/__/vendor/imgui/imgui_demo.cpp.o", "../vendor/imgui/imgui_demo.cpp"],
-  "file": "../vendor/imgui/imgui_demo.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut/spark3",
   "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-I../vendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "build/.objs/GLFW/linux/x86_64/release/__/vendor/GLFW/src/context.c.o", "../vendor/GLFW/src/context.c"],
   "file": "../vendor/GLFW/src/context.c"
 },
@@ -133,6 +108,31 @@
   "directory": "/home/vagrant/workspace/cxx/walnut/spark3",
   "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-I../vendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "build/.objs/GLFW/linux/x86_64/release/__/vendor/GLFW/src/linux_joystick.c.o", "../vendor/GLFW/src/linux_joystick.c"],
   "file": "../vendor/GLFW/src/linux_joystick.c"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut/spark3",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I../vendor/imgui", "-I../vendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/__/vendor/imgui/imgui.cpp.o", "../vendor/imgui/imgui.cpp"],
+  "file": "../vendor/imgui/imgui.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut/spark3",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I../vendor/imgui", "-I../vendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/__/vendor/imgui/imgui_draw.cpp.o", "../vendor/imgui/imgui_draw.cpp"],
+  "file": "../vendor/imgui/imgui_draw.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut/spark3",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I../vendor/imgui", "-I../vendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/__/vendor/imgui/imgui_tables.cpp.o", "../vendor/imgui/imgui_tables.cpp"],
+  "file": "../vendor/imgui/imgui_tables.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut/spark3",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I../vendor/imgui", "-I../vendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/__/vendor/imgui/imgui_widgets.cpp.o", "../vendor/imgui/imgui_widgets.cpp"],
+  "file": "../vendor/imgui/imgui_widgets.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut/spark3",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I../vendor/imgui", "-I../vendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/__/vendor/imgui/imgui_demo.cpp.o", "../vendor/imgui/imgui_demo.cpp"],
+  "file": "../vendor/imgui/imgui_demo.cpp"
 },
 {
   "directory": "/home/vagrant/workspace/cxx/walnut/spark3",

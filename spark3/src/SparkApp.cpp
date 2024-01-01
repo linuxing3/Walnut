@@ -14,7 +14,7 @@ static LLM *s_Asyncllm;
 // async status tag
 static atomic_bool finish(false);
 // result cache
-static string final_result = "";
+static string s_FinalResult = "";
 
 void SparkApp::askQuestions() {
   cout << "\n######### 异步调用 #########" << endl;
@@ -37,12 +37,14 @@ void SparkApp::askQuestions() {
 
   // 异步请求
   int i = 0;
-  char input[1024] = {0};
   while (i++ < 2) {
     finish = false;
 
-    scanf("%s", input);
-    int ret = s_Asyncllm->arun(input, m_UserContext);
+    /* char question_buf[1024]; */
+    /* strcpy(question_buf, m_Question.c_str()); */
+    const char *question_buf = m_Question.c_str();
+    /* question_buf = m_Question.c_str(); */
+    int ret = s_Asyncllm->arun(question_buf, m_UserContext);
     if (ret != 0) {
       printf(RED "\narun failed: %d\n\n" RESET, ret);
       finish = true;
@@ -55,7 +57,6 @@ void SparkApp::askQuestions() {
       if (times++ > 10)  // 等待十秒如果没有最终结果返回退出
         break;
     }
-    memset(input, 0, 1024);
   }
 }
 
@@ -70,8 +71,9 @@ void SparkApp::onLLMResult(LLMResult *result, void *usrContext) {
   int status = result->getStatus();
   /* printf(RED "%d:%s:%s \n" RESET, status, result->getRole(), usrContext);
    */
-  final_result += string(result->getContent());
-  std::cout << final_result << std::endl;
+  s_FinalResult += string(result->getContent());
+  // TODO: need to return
+  std::cout << s_FinalResult << std::endl;
   if (status == 2) {
     printf(GREEN "tokens:%d + %d = %d\n" RESET, result->getCompletionTokens(),
            result->getPromptTokens(), result->getTotalTokens());
@@ -93,3 +95,5 @@ void SparkApp::onLLMError(LLMError *error, void *usrContext) {
 LLMConfig *SparkApp::GetLLMConfig() { return s_LLMConfig; }
 
 LLM *SparkApp::GetLLM() { return s_Asyncllm; }
+
+string SparkApp::GetFinalResult() { return s_FinalResult; }
