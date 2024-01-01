@@ -1,3 +1,5 @@
+--- @diagnostic disable:undefined-global
+
 includes('../Walnut')
 
 if is_os('windows') then
