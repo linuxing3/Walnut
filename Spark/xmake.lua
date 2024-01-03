@@ -3,7 +3,7 @@
 includes('../Walnut')
 
 if is_os('windows') then
-    target('spark')
+    target('Spark')
     set_kind('binary')
     set_languages('c++20')
     add_defines('WL_PLATFORM_WINDOWS', 'WL_DIST')
@@ -23,7 +23,7 @@ if is_os('windows') then
         os.cp('$(scriptdir)/imgui.ini', target:targetdir())
     end)
 else
-    target('spark')
+    target('Spark')
     set_kind('binary')
     set_languages('c++20')
     add_files('src/**.cpp')

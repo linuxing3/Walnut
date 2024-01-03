@@ -2,5 +2,6 @@
 -- build deps
 includes('WalnutApp')
 includes('Genesis')
-includes('spark3')
+includes('Spark')
+includes('Spark3')
 includes('Raytracing')
