@@ -43,11 +43,23 @@ sparkai-build:
   cd {{workspace_dir}}
   xmake -P spark
 
-sparkai-run:
+sparkai-run: sparkai-build
   #!/usr/bin/env bash
   set -euxo pipefail
   cd {{workspace_dir}}
   xmake r -P spark
+
+sparkai3-build:
+  #!/usr/bin/env bash
+  set -euxo pipefail
+  cd {{workspace_dir}}
+  xmake -P spark3
+
+sparkai3-run: sparkai3-build
+  #!/usr/bin/env bash
+  set -euxo pipefail
+  cd {{workspace_dir}}
+  xmake r -P spark3
 
 walnutapp-build:
   #!/usr/bin/env bash
@@ -55,13 +67,13 @@ walnutapp-build:
   cd {{workspace_dir}}
   xmake -P WalnutApp
 
-walnutapp: walnutapp-build
+walnutapp-run: 
   #!/usr/bin/env bash
   set -euxo pipefail
   cd {{workspace_dir}}
   xmake r -P WalnutApp
 
-build:
+compile_commands:
   #!/usr/bin/env bash
   cd {{workspace_dir}}
   xmake project -k compile_commands

@@ -8,6 +8,7 @@
 #include <execution>
 #include <iostream>
 
+/* #define MT 1 */
 namespace Utils {
 
 static uint32_t ConvertToRGBA(const glm::vec4 &color) {
@@ -60,8 +61,6 @@ void Renderer::OnResize(uint32_t width, uint32_t height) {
 void Renderer::Render(const Scene &scene, const Camera &camera) {
   m_ActiveScene = &scene;
   m_ActiveCamera = &camera;
-
-  /* #define MT 1 */
 
 #ifdef MT
 
@@ -132,15 +131,6 @@ glm::vec4 Renderer::PerPixel(uint32_t x, uint32_t y) {
       light += skyColor * contribution;
       break;
     }
-
-    // FIXME: how to sample from image
-    // vec3 worldPosition;
-    // worldPosition.e[0] = payload.WorldPosition.x;
-    // worldPosition.e[1] = payload.WorldPosition.y;
-    // worldPosition.e[2] = payload.WorldPosition.z;
-    // color mapColor = m_EarthTexture->value(payload.u, payload.v,
-    // worldPosition ); light.x += (float)mapColor[0]; light.y +=
-    // (float)mapColor[1]; light.z += (float)mapColor[2];
 
     // Get material with roughness and correspondent color
     const Sphere &sphere = m_ActiveScene->Spheres[payload.ObjectIndex];

@@ -1,6 +1,21 @@
 [
 {
   "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IWalnutApp/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-DNDEBUG", "-o", "build/.objs/WalnutApp/linux/x86_64/release/WalnutApp/src/Renderer.cpp.o", "WalnutApp/src/Renderer.cpp"],
+  "file": "WalnutApp/src/Renderer.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IWalnutApp/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-DNDEBUG", "-o", "build/.objs/WalnutApp/linux/x86_64/release/WalnutApp/src/Camera.cpp.o", "WalnutApp/src/Camera.cpp"],
+  "file": "WalnutApp/src/Camera.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-IWalnutApp/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-DNDEBUG", "-o", "build/.objs/WalnutApp/linux/x86_64/release/WalnutApp/src/WalnutApp.cpp.o", "WalnutApp/src/WalnutApp.cpp"],
+  "file": "WalnutApp/src/WalnutApp.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
   "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-O3", "-Ivendor/GLFW/include", "-D_GLFW_X11", "-DNDEBUG", "-o", "build/.objs/GLFW/linux/x86_64/release/vendor/GLFW/src/context.c.o", "vendor/GLFW/src/context.c"],
   "file": "vendor/GLFW/src/context.c"
 },
@@ -221,16 +236,6 @@
 },
 {
   "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Ispark3/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ispark3/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/spdlog/include", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut-Modules/Walnut-Networking/vendor/GameNetworkingSockets/include", "-IWalnut-Modules/Walnut-Networking/Source", "-IWalnutChat/App-Common/Source", "-o", "build/.objs/spark3/linux/x86_64/release/spark3/src/SparkApp.cpp.o", "spark3/src/SparkApp.cpp"],
-  "file": "spark3/src/SparkApp.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Ispark3/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ispark3/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/spdlog/include", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut-Modules/Walnut-Networking/vendor/GameNetworkingSockets/include", "-IWalnut-Modules/Walnut-Networking/Source", "-IWalnutChat/App-Common/Source", "-o", "build/.objs/spark3/linux/x86_64/release/spark3/src/main.cpp.o", "spark3/src/main.cpp"],
-  "file": "spark3/src/main.cpp"
-},
-{
-  "directory": "/home/vagrant/workspace/cxx/walnut",
   "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-DNDEBUG", "-o", "build/.objs/Imgui/linux/x86_64/release/vendor/imgui/imgui_tables.cpp.o", "vendor/imgui/imgui_tables.cpp"],
   "file": "vendor/imgui/imgui_tables.cpp"
 },
@@ -323,4 +328,14 @@
   "directory": "/home/vagrant/workspace/cxx/walnut",
   "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/spdlog/include", "-DNDEBUG", "-o", "build/.objs/Walnut/linux/x86_64/release/Walnut/Platform/GUI/Walnut/ApplicationGUI.cpp.o", "Walnut/Platform/GUI/Walnut/ApplicationGUI.cpp"],
   "file": "Walnut/Platform/GUI/Walnut/ApplicationGUI.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Ispark3/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ispark3/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/spdlog/include", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut-Modules/Walnut-Networking/vendor/GameNetworkingSockets/include", "-IWalnut-Modules/Walnut-Networking/Source", "-IWalnutChat/App-Common/Source", "-o", "build/.objs/spark3/linux/x86_64/release/spark3/src/SparkApp.cpp.o", "spark3/src/SparkApp.cpp"],
+  "file": "spark3/src/SparkApp.cpp"
+},
+{
+  "directory": "/home/vagrant/workspace/cxx/walnut",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Ispark3/include", "-IWalnut/Source", "-IWalnut/Platform/GUI", "-Ispark3/src", "-Ivendor/imgui", "-Ivendor/GLFW/include", "-Ivendor/glm", "-Ivendor/stb_image", "-Ivendor/spdlog/include", "-I/home/vagrant/Downloads/vulkan_sdk/x86_64/include", "-IWalnut-Modules/Walnut-Networking/vendor/GameNetworkingSockets/include", "-IWalnut-Modules/Walnut-Networking/Source", "-IWalnutChat/App-Common/Source", "-o", "build/.objs/spark3/linux/x86_64/release/spark3/src/main.cpp.o", "spark3/src/main.cpp"],
+  "file": "spark3/src/main.cpp"
 }]
