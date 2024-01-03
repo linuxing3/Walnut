@@ -46,7 +46,6 @@ void SparkApp::askQuestions() {
     /* char question_buf[1024]; */
     /* strcpy(question_buf, m_Question.c_str()); */
     const char *question_buf = m_Question.c_str();
-    /* question_buf = m_Question.c_str(); */
     int ret = s_Asyncllm->arun(question_buf, m_UserContext);
     if (ret != 0) {
       printf(RED "\narun failed: %d\n\n" RESET, ret);

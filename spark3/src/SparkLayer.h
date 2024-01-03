@@ -239,7 +239,7 @@ class SparkLayer : public Walnut::Layer {
     // data->SelectionStart, data->SelectionEnd);
     switch (data->EventFlag) {
       case ImGuiInputTextFlags_CallbackCompletion: {
-        // Example of TEXT COMPLETION
+        // NOTE: Example of TEXT COMPLETION
 
         // Locate beginning of current word
         const char* word_end = data->Buf + data->CursorPos;

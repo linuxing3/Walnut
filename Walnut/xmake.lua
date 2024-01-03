@@ -1,8 +1,7 @@
 --- @diagnostic disable:undefined-global
 add_rules('mode.debug', 'mode.release')
 
-includes('../vendor/imgui')
-includes('../vendor/GLFW')
+includes('../vendor')
 
 if is_os('windows') then
     target('Walnut')

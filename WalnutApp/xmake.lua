@@ -1,3 +1,4 @@
+--- @diagnostic disable:undefined-global
 -- build deps
 add_rules('mode.debug')
 add_rules('mode.release')
